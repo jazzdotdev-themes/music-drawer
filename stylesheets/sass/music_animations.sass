@@ -1,0 +1,45 @@
+=keyframes($name)
+  @-webkit-keyframes #{unquote($name)}
+    @content
+  @-moz-keyframes #{unquote($name)}
+    @content
+  @-ms-keyframes #{unquote($name)}
+    @content
+  @keyframes #{unquote($name)}
+    @content
+    
+=animation_property($name,$value) 
+  -webkit-#{unquote($name)}: unquote($value)
+  -moz-#{unquote($name)}: unquote($value)
+  -ms-#{unquote($name)}: unquote($value)
+  -o-#{unquote($name)}: unquote($value)
+  #{unquote($name)}: unquote($value)
+
++keyframes(load)
+  0%,
+  100%
+    +animation_property(transform,scaleY(0.5))
+    background: #03A9F4
+
+  
+  16.67%
+    +animation_property(transform,scaleY(3))
+    background: #FF5722
+
+  
+  33.33%
+    +animation_property(transform,scaleY(0.5))
+    background: #FF5252
+  
+  50%
+    +animation_property(transform,scaleY(3))
+    background: #E91E63
+  
+  66.67%
+    +animation_property(transform,scaleY(0.5))
+    background: #9C27B0
+  
+  83.34%
+    +animation_property(transform,scaleY(3))
+    background: #673AB7
+  
