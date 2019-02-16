@@ -9,7 +9,7 @@
 
 <input hidden type="checkbox" id="play_button">
 <div music__box id="music_box">
-  <div music__wave> 
+  <div dark_container> 
     <div wave >
 
       <div rec_1 ></div>
@@ -25,19 +25,28 @@
       <div rec_1 ></div>
     </div>
     
-  </div>
-  
-  <div video_feed>
-
-
-  </div>
-
-  <div music_video>
-
-  </div>
-  <label for="play_button" >
-    <div play__button id="play_button">
+    <div video_feed>
+      <video music_video controls>
+        <source>  
+        Your browser does not support the video tag.
+      </video>
   
     </div>
-  </label>
+  </div>
+  <div controls>
+    <div button_previous>
+    
+    </div>
+    <label for="play_button" >
+      <div play__button id="play_button">
+    
+      </div>
+    </label>
+    <div button_next>
+
+    </div>
+
+  </div>
+  
+
 </div>

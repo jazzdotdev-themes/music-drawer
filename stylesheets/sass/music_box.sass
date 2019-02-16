@@ -1,14 +1,48 @@
 $play_button_size: 20px
 
-
+.dark_container
+  width: 100%
+  height: auto
+  background-color: #000000
+  border-radius: 0.5rem
+  padding: 5px
 
 .input__hidden
   display: none
   visibility: hidden  
   
+%triangle_left
+  box-sizing: border-box
+  height: $play_button_size
+  width: $play_button_size
+  
+  border-color: transparent #F1F5F8 transparent transparent
+  transition: 100ms all ease
+  will-change: border-width
+  cursor: pointer
+
+  // play state
+  border-style: solid
+  border-width: calc(#{$play_button_size}/2) $play_button_size calc(#{$play_button_size}/2) 0
+
+%triangle_right
+  box-sizing: border-box
+  height: $play_button_size
+  width: $play_button_size
+  
+  border-color: transparent transparent transparent #F1F5F8
+  transition: 100ms all ease
+  will-change: border-width
+  cursor: pointer
+
+  // play state
+  border-style: solid
+  border-width: calc(#{$play_button_size}/2) 0 calc(#{$play_button_size}/2) $play_button_size  
+
+
 .music__box
-  width: 250px
-  height: 350px
+  width: 300px
+  height: 450px
   margin: 10px
   border-radius: 0.6rem
   background-color: #22292F
@@ -47,20 +81,60 @@ $play_button_size: 20px
     border: 6px solid #5ac4c9
     box-shadow: 0px 0px 10px 4px rgba(90, 196, 201,0.5)
 
-  .play__button 
-    box-sizing: border-box
-    height: $play_button_size
-    width: $play_button_size
-    
-    border-color: transparent transparent transparent #F1F5F8
-    transition: 100ms all ease
-    will-change: border-width
-    cursor: pointer
+  .music__controls
+    margin: 10px 0px
+    border-radius: 0.5rem
+    background-color: #8795A1
+    padding: 10px
 
-    // play state
-    border-style: solid
-    border-width: calc(#{$play_button_size}/2) 0 calc(#{$play_button_size}/2) $play_button_size
+    height: 40px
+    display: flex
+    justify-content: space-between
 
+        
+
+    .button_next
+      position: relative
+
+      @extend %triangle_right
+      &::after
+        position: absolute
+
+        content: " "
+        left: -#{$play_button_size * 2 }
+        top: -#{$play_button_size / 2 }
+        @extend %triangle_right
+
+        &:hover
+          border-color: transparent transparent transparent #DAE1E7
+
+      &:hover
+        border-color: transparent transparent transparent #DAE1E7
+
+
+    .button_previous
+      position: relative
+      @extend %triangle_left
+      
+      &::after
+        position: absolute
+
+        content: " "
+        right: -#{$play_button_size * 2 }
+        top: -#{$play_button_size / 2 }
+        @extend %triangle_left
+
+        &:hover
+          border-color: transparent #DAE1E7 transparent transparent 
+
+      &:hover
+        border-color: transparent #DAE1E7 transparent transparent 
+      
+    .play__button 
+      @extend %triangle_right
+      
+      &:hover
+        border-color: transparent transparent transparent #DAE1E7
 
       // paused state
 %paused 

@@ -174,13 +174,42 @@
     -o-transform: scaleY(3);
     transform: scaleY(3);
     background: #673AB7; } }
+.dark_container {
+  width: 100%;
+  height: auto;
+  background-color: #000000;
+  border-radius: 0.5rem;
+  padding: 5px; }
+
 .input__hidden {
   display: none;
   visibility: hidden; }
 
+.music__box .music__controls .button_previous, .music__box .music__controls .button_previous::after {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-color: transparent #F1F5F8 transparent transparent;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 20px calc(20px/2) 0; }
+
+.music__box .music__controls .button_next, .music__box .music__controls .button_next::after, .music__box .music__controls .play__button {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-color: transparent transparent transparent #F1F5F8;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+
 .music__box {
-  width: 250px;
-  height: 350px;
+  width: 300px;
+  height: 450px;
   margin: 10px;
   border-radius: 0.6rem;
   background-color: #22292F;
@@ -211,40 +240,57 @@
     bottom: -10px;
     border: 6px solid #5ac4c9;
     box-shadow: 0px 0px 10px 4px rgba(90, 196, 201, 0.5); }
-  .music__box .play__button {
-    box-sizing: border-box;
-    height: 20px;
-    width: 20px;
-    border-color: transparent transparent transparent #F1F5F8;
-    transition: 100ms all ease;
-    will-change: border-width;
-    cursor: pointer;
-    border-style: solid;
-    border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  .music__box .music__controls {
+    margin: 10px 0px;
+    border-radius: 0.5rem;
+    background-color: #8795A1;
+    padding: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between; }
+    .music__box .music__controls .button_next {
+      position: relative; }
+      .music__box .music__controls .button_next::after {
+        position: absolute;
+        content: " ";
+        left: -40px;
+        top: -10px; }
+        .music__box .music__controls .button_next::after:hover {
+          border-color: transparent transparent transparent #DAE1E7; }
+      .music__box .music__controls .button_next:hover {
+        border-color: transparent transparent transparent #DAE1E7; }
+    .music__box .music__controls .button_previous {
+      position: relative; }
+      .music__box .music__controls .button_previous::after {
+        position: absolute;
+        content: " ";
+        right: -40px;
+        top: -10px; }
+        .music__box .music__controls .button_previous::after:hover {
+          border-color: transparent #DAE1E7 transparent transparent; }
+      .music__box .music__controls .button_previous:hover {
+        border-color: transparent #DAE1E7 transparent transparent; }
+    .music__box .music__controls .play__button:hover {
+      border-color: transparent transparent transparent #DAE1E7; }
 
 #play_button:checked ~ #music_box label #play_button {
   border-style: double;
   border-width: 0px 0 0px 20px; }
 
-.music_wave {
-  width: 100%; }
-
 .loader-container {
   position: relative;
-  height: calc(3 * 30px + 20px );
+  height: calc(3 * 20px + 20px );
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-top: calc(30px + 10px );
-  padding-bottom: 10px;
-  background-color: #000000;
-  border-radius: 0.5rem; }
+  padding-top: calc(20px + 10px );
+  padding-bottom: 10px; }
   .loader-container > div {
     position: relative;
     display: inline-block;
     background: #03A9F4;
-    height: 30px;
+    height: 20px;
     width: 10px;
     margin: 0px 2px;
     -webkit-transform-origin: 50% 100%;
@@ -323,5 +369,11 @@
     -ms-animation-delay: 1000ms;
     -o-animation-delay: 1000ms;
     animation-delay: 1000ms; }
+
+.video__container {
+  margin: 20px 0px; }
+  .video__container .music__video {
+    width: 100%;
+    height: 100%; }
 
 /*# sourceMappingURL=music_styles.css.map */
