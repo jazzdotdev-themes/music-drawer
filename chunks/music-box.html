@@ -1,0 +1,82 @@
+<!-- <audio controls>
+  <source src="song.ogg" type="audio/ogg">
+  <source src="https://coa.eaoe.cc/1d4f4fc948e23860bae15ad07c1ef5c1/AMTAQ-AJS4Y" type="audio/mpeg">
+  <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
+  
+  Your browser does not support the audio element.
+  
+</audio> -->
+
+
+{% set media_type = "youtube" %}
+
+<input hidden type="checkbox" id="play_button">
+<div music__box id="music_box">
+  <div dark_container> 
+    <div wave >
+
+      <div rec_1 ></div>
+      <div rec_2 ></div>
+      <div rec_3 ></div>
+      <div rec_4 ></div>
+      <div rec_5 ></div>
+      <div rec_6 ></div>
+      <div rec_5 ></div>
+      <div rec_4 ></div>
+      <div rec_3 ></div>
+      <div rec_2 ></div>
+      <div rec_1 ></div>
+      <div rec_2 ></div>
+      <div rec_3 ></div>
+      <div rec_4 ></div>
+      <div rec_5 ></div>
+      <div rec_6 ></div>
+      <div rec_5 ></div>
+      <div rec_4 ></div>
+      <div rec_3 ></div>
+      <div rec_2 ></div>
+      <div rec_1 ></div>
+    </div>
+    
+    <div video_feed>
+    
+    {% if media_type == "youtube" %}
+      <!-- make sure link has embed  tag-->
+      <iframe music_video src="https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+
+    {% elif media_type == "video" %}
+      <video music_video controls>
+        <source src="" type="video/mp4">
+        <source src="" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    {% else %}
+
+    {% endif %}
+
+      
+  
+    </div>
+  </div>
+  <div music_box_controls>
+    <div controls>
+      <div button_previous>
+      
+      </div>
+      <label for="play_button" >
+        <div play__button id="play_button">
+      
+        </div>
+      </label>
+      <div button_next>
+  
+      </div>
+  
+    </div>
+
+  </div>
+  
+  
+
+</div>

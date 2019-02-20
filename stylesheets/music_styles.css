@@ -185,7 +185,7 @@
   display: none;
   visibility: hidden; }
 
-.music__box .music__controls .button_previous, .music__box .music__controls .button_previous::after {
+.music__controls .button_previous, .music_bar_controls .bar__controls .button_previous, .music__controls .button_previous::after, .music_bar_controls .bar__controls .button_previous::after {
   box-sizing: border-box;
   height: 20px;
   width: 20px;
@@ -196,7 +196,7 @@
   border-style: solid;
   border-width: calc(20px/2) 20px calc(20px/2) 0; }
 
-.music__box .music__controls .button_next, .music__box .music__controls .button_next::after, .music__box .music__controls .play__button {
+.music__controls .button_next, .music_bar_controls .bar__controls .button_next, .music__controls .button_next::after, .music_bar_controls .bar__controls .button_next::after, .music__controls .play__button, .music_bar_controls .bar__controls .play__button {
   box-sizing: border-box;
   height: 20px;
   width: 20px;
@@ -208,8 +208,8 @@
   border-width: calc(20px/2) 0 calc(20px/2) 20px; }
 
 .music__box {
-  width: 300px;
-  height: 450px;
+  width: 400px;
+  height: 350px;
   margin: 10px;
   border-radius: 0.6rem;
   background-color: #22292F;
@@ -240,38 +240,46 @@
     bottom: -10px;
     border: 6px solid #5ac4c9;
     box-shadow: 0px 0px 10px 4px rgba(90, 196, 201, 0.5); }
-  .music__box .music__controls {
-    margin: 10px 0px;
-    border-radius: 0.5rem;
-    background-color: #8795A1;
-    padding: 10px;
-    height: 40px;
-    display: flex;
-    justify-content: space-between; }
-    .music__box .music__controls .button_next {
-      position: relative; }
-      .music__box .music__controls .button_next::after {
-        position: absolute;
-        content: " ";
-        left: -40px;
-        top: -10px; }
-        .music__box .music__controls .button_next::after:hover {
-          border-color: transparent transparent transparent #DAE1E7; }
-      .music__box .music__controls .button_next:hover {
-        border-color: transparent transparent transparent #DAE1E7; }
-    .music__box .music__controls .button_previous {
-      position: relative; }
-      .music__box .music__controls .button_previous::after {
-        position: absolute;
-        content: " ";
-        right: -40px;
-        top: -10px; }
-        .music__box .music__controls .button_previous::after:hover {
-          border-color: transparent #DAE1E7 transparent transparent; }
-      .music__box .music__controls .button_previous:hover {
-        border-color: transparent #DAE1E7 transparent transparent; }
-    .music__box .music__controls .play__button:hover {
+
+.music_box_container_controls {
+  margin: 10px 0px;
+  border-radius: 0.5rem;
+  background-color: #8795A1;
+  padding: 10px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.music__controls, .music_bar_controls .bar__controls {
+  background-color: transparent;
+  width: 250px;
+  display: flex;
+  justify-content: space-between; }
+  .music__controls .button_next, .music_bar_controls .bar__controls .button_next {
+    position: relative; }
+    .music__controls .button_next::after, .music_bar_controls .bar__controls .button_next::after {
+      position: absolute;
+      content: " ";
+      left: -40px;
+      top: -10px; }
+    .music__controls .button_next:hover, .music_bar_controls .bar__controls .button_next:hover {
       border-color: transparent transparent transparent #DAE1E7; }
+      .music__controls .button_next:hover::after, .music_bar_controls .bar__controls .button_next:hover::after {
+        border-color: transparent transparent transparent #DAE1E7; }
+  .music__controls .button_previous, .music_bar_controls .bar__controls .button_previous {
+    position: relative; }
+    .music__controls .button_previous::after, .music_bar_controls .bar__controls .button_previous::after {
+      position: absolute;
+      content: " ";
+      right: -40px;
+      top: -10px; }
+    .music__controls .button_previous:hover, .music_bar_controls .bar__controls .button_previous:hover {
+      border-color: transparent #DAE1E7 transparent transparent; }
+      .music__controls .button_previous:hover::after, .music_bar_controls .bar__controls .button_previous:hover::after {
+        border-color: transparent #DAE1E7 transparent transparent; }
+  .music__controls .play__button:hover, .music_bar_controls .bar__controls .play__button:hover {
+    border-color: transparent transparent transparent #DAE1E7; }
 
 #play_button:checked ~ #music_box label #play_button {
   border-style: double;
@@ -279,18 +287,18 @@
 
 .loader-container {
   position: relative;
-  height: calc(3 * 20px + 20px );
+  height: calc(3 * 10px + 20px );
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-top: calc(20px + 10px );
+  padding-top: calc(10px + 10px );
   padding-bottom: 10px; }
   .loader-container > div {
     position: relative;
     display: inline-block;
     background: #03A9F4;
-    height: 20px;
+    height: 10px;
     width: 10px;
     margin: 0px 2px;
     -webkit-transform-origin: 50% 100%;
@@ -375,5 +383,17 @@
   .video__container .music__video {
     width: 100%;
     height: 100%; }
+
+.music_bottom_bar {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(29, 28, 28, 0.5);
+  position: fixed;
+  bottom: 0; }
+
+.music_bar_controls {
+  padding: 10px; }
+  .music_bar_controls .bar__controls {
+    width: 200px; }
 
 /*# sourceMappingURL=music_styles.css.map */
