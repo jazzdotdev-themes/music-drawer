@@ -185,34 +185,12 @@
   display: none;
   visibility: hidden; }
 
-.music__controls .button_previous, .music_bar_controls .bar__controls .button_previous, .music__controls .button_previous::after, .music_bar_controls .bar__controls .button_previous::after {
-  box-sizing: border-box;
-  height: 20px;
-  width: 20px;
-  border-color: transparent #F1F5F8 transparent transparent;
-  transition: 100ms all ease;
-  will-change: border-width;
-  cursor: pointer;
-  border-style: solid;
-  border-width: calc(20px/2) 20px calc(20px/2) 0; }
-
-.music__controls .button_next, .music_bar_controls .bar__controls .button_next, .music__controls .button_next::after, .music_bar_controls .bar__controls .button_next::after, .music__controls .play__button, .music_bar_controls .bar__controls .play__button {
-  box-sizing: border-box;
-  height: 20px;
-  width: 20px;
-  border-color: transparent transparent transparent #F1F5F8;
-  transition: 100ms all ease;
-  will-change: border-width;
-  cursor: pointer;
-  border-style: solid;
-  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
-
 .music__box {
   width: 400px;
-  height: 350px;
+  height: 360px;
   margin: 10px;
   border-radius: 0.6rem;
-  background-color: #22292F;
+  background-color: #0d1013;
   border-width: 6px;
   border-style: solid;
   border-color: #5ac4c9;
@@ -239,51 +217,15 @@
     right: -10px;
     bottom: -10px;
     border: 6px solid #5ac4c9;
-    box-shadow: 0px 0px 10px 4px rgba(90, 196, 201, 0.5); }
+    box-shadow: 0px 0px 10px 10px rgba(90, 196, 201, 0.5); }
 
-.music_box_container_controls {
+.music__footer {
   margin: 10px 0px;
   border-radius: 0.5rem;
-  background-color: #8795A1;
+  background-color: #2b3136;
+  width: 70%;
   padding: 10px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.music__controls, .music_bar_controls .bar__controls {
-  background-color: transparent;
-  width: 250px;
-  display: flex;
-  justify-content: space-between; }
-  .music__controls .button_next, .music_bar_controls .bar__controls .button_next {
-    position: relative; }
-    .music__controls .button_next::after, .music_bar_controls .bar__controls .button_next::after {
-      position: absolute;
-      content: " ";
-      left: -40px;
-      top: -10px; }
-    .music__controls .button_next:hover, .music_bar_controls .bar__controls .button_next:hover {
-      border-color: transparent transparent transparent #DAE1E7; }
-      .music__controls .button_next:hover::after, .music_bar_controls .bar__controls .button_next:hover::after {
-        border-color: transparent transparent transparent #DAE1E7; }
-  .music__controls .button_previous, .music_bar_controls .bar__controls .button_previous {
-    position: relative; }
-    .music__controls .button_previous::after, .music_bar_controls .bar__controls .button_previous::after {
-      position: absolute;
-      content: " ";
-      right: -40px;
-      top: -10px; }
-    .music__controls .button_previous:hover, .music_bar_controls .bar__controls .button_previous:hover {
-      border-color: transparent #DAE1E7 transparent transparent; }
-      .music__controls .button_previous:hover::after, .music_bar_controls .bar__controls .button_previous:hover::after {
-        border-color: transparent #DAE1E7 transparent transparent; }
-  .music__controls .play__button:hover, .music_bar_controls .bar__controls .play__button:hover {
-    border-color: transparent transparent transparent #DAE1E7; }
-
-#play_button:checked ~ #music_box label #play_button {
-  border-style: double;
-  border-width: 0px 0 0px 20px; }
+  height: 40px; }
 
 .loader-container {
   position: relative;
@@ -395,5 +337,118 @@
   padding: 10px; }
   .music_bar_controls .bar__controls {
     width: 200px; }
+
+.music__controls, .music_bar_controls .bar__controls {
+  background-color: transparent;
+  width: 250px;
+  display: flex;
+  justify-content: space-between; }
+
+.button_next {
+  position: relative;
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-color: transparent transparent transparent #F1F5F8;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  .button_next::after {
+    position: absolute;
+    content: " ";
+    left: -40px;
+    top: -20px/2;
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    border-color: transparent transparent transparent #F1F5F8;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+    border-style: solid;
+    border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  .button_next:hover {
+    border-color: transparent transparent transparent #DAE1E7; }
+    .button_next:hover::after {
+      border-color: transparent transparent transparent #DAE1E7; }
+
+.button_previous {
+  position: relative;
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-color: transparent #F1F5F8 transparent transparent;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 20px calc(20px/2) 0; }
+  .button_previous::after {
+    position: absolute;
+    content: " ";
+    right: -40px;
+    top: -20px/2;
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    border-color: transparent #F1F5F8 transparent transparent;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+    border-style: solid;
+    border-width: calc(20px/2) 20px calc(20px/2) 0; }
+  .button_previous:hover {
+    border-color: transparent #DAE1E7 transparent transparent; }
+    .button_previous:hover::after {
+      border-color: transparent #DAE1E7 transparent transparent; }
+
+.play__button {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border-color: transparent transparent transparent #F1F5F8;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  .play__button:hover {
+    border-color: transparent transparent transparent #DAE1E7; }
+
+.bottom_musicbox {
+  position: relative; }
+  .bottom_musicbox .box__play__container {
+    margin: 10px;
+    position: absolute;
+    right: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #2779BD;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    cursor: pointer; }
+    .bottom_musicbox .box__play__container .box__play__button {
+      position: absolute;
+      left: 25%;
+      box-sizing: border-box;
+      height: 30px;
+      width: 30px;
+      border-color: transparent transparent transparent #794ACF;
+      transition: 100ms all ease;
+      will-change: border-width;
+      cursor: pointer;
+      border-style: solid;
+      border-width: calc(30px/2) 0 calc(30px/2) 30px; }
+
+#play_button:checked ~ #music_box label #play {
+  border-style: double;
+  border-width: 0px 0 0px 20px;
+  left: 30%; }
 
 /*# sourceMappingURL=music_styles.css.map */

@@ -1,1 +1,1 @@
-play__button
+box__play__button

@@ -1,0 +1,2 @@
+text-center
+music__footer

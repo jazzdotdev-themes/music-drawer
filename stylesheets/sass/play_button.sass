@@ -1,0 +1,122 @@
+=triangle_left($color,$size)
+  box-sizing: border-box
+  height: $size
+  width: $size
+  
+  border-color: transparent $color transparent transparent
+  transition: 100ms all ease
+  will-change: border-width
+  cursor: pointer
+
+  // play state
+  border-style: solid
+  border-width: calc(#{$size}/2) $size calc(#{$size}/2) 0
+
+// #F1F5F8
+=triangle_right($color,$size)
+  box-sizing: border-box
+  height: $size
+  width: $size
+  
+  border-color: transparent transparent transparent $color
+  transition: 100ms all ease
+  will-change: border-width
+  cursor: pointer
+
+  // play state
+  border-style: solid
+  border-width: calc(#{$size}/2) 0 calc(#{$size}/2) $size  
+
+// paused state
+=paused($size)
+  border-style: double
+  border-width: 0px 0 0px $size
+
+.music__controls
+  background-color: transparent
+  width: 250px
+  display: flex
+  justify-content: space-between
+
+        
+.button_next
+  position: relative
+
+  +triangle_right(#F1F5F8,20px)
+  &::after
+    position: absolute
+
+    content: " "
+    left: -#{20px * 2 }
+    top: -#{20px / 2 }
+    +triangle_right(#F1F5F8,20px)
+
+  &:hover
+    border-color: transparent transparent transparent #DAE1E7
+    &::after
+      border-color: transparent transparent transparent #DAE1E7
+
+.button_previous
+  position: relative
+  +triangle_left(#F1F5F8,20px)
+  
+  &::after
+    position: absolute
+
+    content: " "
+    right: -#{20px * 2 }
+    top: -#{20px / 2 }
+    +triangle_left(#F1F5F8,20px)
+    
+  &:hover
+    border-color: transparent #DAE1E7 transparent transparent 
+    &::after
+      border-color: transparent #DAE1E7 transparent transparent 
+
+
+      
+.play__button
+  +triangle_right(#F1F5F8,20px)
+  
+  &:hover
+    border-color: transparent transparent transparent #DAE1E7
+    
+
+
+.bottom_musicbox  
+  position: relative
+  .box__play__container
+    margin: 10px
+    position: absolute
+    right: 0
+    border-width: 2px
+    border-style: solid
+    border-radius: 50%
+    border-color: #2779BD
+    display: flex
+    align-items: center
+    // justify-content: center
+    width: 60px
+    height: 60px
+    padding: 5px
+    cursor: pointer
+    
+    // linear-gradient(135deg,#191E38, #794ACF)
+
+    .box__play__button
+      position: absolute   
+      left: 25% 
+      +triangle_right(#794ACF,30px)
+
+
+
+
+#play_button  
+  &:checked
+    ~ 
+      #music_box   
+        label     
+          #play
+            // left: 35% 
+            +paused(20px)
+            left: 30%
