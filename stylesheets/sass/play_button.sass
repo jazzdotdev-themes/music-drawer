@@ -1,31 +1,25 @@
-=triangle_left($color,$size)
+=triangle($size: 10px,$direction: "right",$color: #000,$gradient: false)
   box-sizing: border-box
   height: $size
   width: $size
-  
-  border-color: transparent $color transparent transparent
   transition: 100ms all ease
   will-change: border-width
   cursor: pointer
-
-  // play state
   border-style: solid
-  border-width: calc(#{$size}/2) $size calc(#{$size}/2) 0
 
-// #F1F5F8
-=triangle_right($color,$size)
-  box-sizing: border-box
-  height: $size
-  width: $size
+  @if $direction == "right"
+    $border_shape: calc(#{$size}/2) 0 calc(#{$size}/2) $size
+    border-width: $border_shape  
+    // border-image-width: $border_shape
+    border-color: transparent transparent transparent $color
+    
+
   
-  border-color: transparent transparent transparent $color
-  transition: 100ms all ease
-  will-change: border-width
-  cursor: pointer
-
-  // play state
-  border-style: solid
-  border-width: calc(#{$size}/2) 0 calc(#{$size}/2) $size  
+  @else if $direction == "left"
+    $border_shape: calc(#{$size}/2) $size calc(#{$size}/2) 0
+    border-width: $border_shape
+    // border-image-width: $border_shape
+    border-color: transparent $color transparent transparent
 
 // paused state
 =paused($size)
@@ -41,15 +35,18 @@
         
 .button_next
   position: relative
+  +triangle(20px,"right",#F1F5F8)
 
-  +triangle_right(#F1F5F8,20px)
+  // +triangle_right(#F1F5F8,20px)
   &::after
     position: absolute
 
     content: " "
-    left: -#{20px * 2 }
-    top: -#{20px / 2 }
-    +triangle_right(#F1F5F8,20px)
+    left: calc(-20px * 2)
+    top: calc(-20px / 2 )
+    +triangle(20px,"right",#F1F5F8)
+
+    // +triangle_right(#F1F5F8,20px)
 
   &:hover
     border-color: transparent transparent transparent #DAE1E7
@@ -58,16 +55,17 @@
 
 .button_previous
   position: relative
-  +triangle_left(#F1F5F8,20px)
+  +triangle(20px,"left",#F1F5F8)
+
   
   &::after
     position: absolute
 
     content: " "
-    right: -#{20px * 2 }
-    top: -#{20px / 2 }
-    +triangle_left(#F1F5F8,20px)
-    
+    right: calc(-20px * 2)
+    top: calc(-20px / 2 )
+    +triangle(20px,"left",#F1F5F8)
+
   &:hover
     border-color: transparent #DAE1E7 transparent transparent 
     &::after
@@ -76,7 +74,8 @@
 
       
 .play__button
-  +triangle_right(#F1F5F8,20px)
+  +triangle(20px,"right",#F1F5F8)
+
   
   &:hover
     border-color: transparent transparent transparent #DAE1E7
@@ -85,7 +84,7 @@
 
 .bottom_musicbox  
   position: relative
-  .box__play__container
+  .play__container
     margin: 10px
     position: absolute
     right: 0
@@ -103,10 +102,42 @@
     
     // linear-gradient(135deg,#191E38, #794ACF)
 
-    .box__play__button
+    .play__button
       position: absolute   
       left: 25% 
-      +triangle_right(#794ACF,30px)
+      +triangle(30px,"right",#794ACF)
+
+      // +triangle_right(#794ACF,30px)
+
+  %bar_button
+    position: relative
+    margin: 0 10px 0 10px
+
+  .next__button
+    @extend %bar_button
+    +triangle(20px,"right",#794ACF)
+    
+    &::after
+      content: ""
+      position: absolute
+      right: -20px
+      top: -10px
+      +triangle(20px,"right",#794ACF)
+
+
+  
+  .previous__button
+    @extend %bar_button
+    margin-left: 30px
+    +triangle(20px,"left",#794ACF)
+    &::after
+      content: ""
+      position: absolute
+      left: -20px
+      top: -10px
+      +triangle(20px,"left",#794ACF)
+
+
 
 
 

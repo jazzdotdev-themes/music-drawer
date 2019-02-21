@@ -42,8 +42,8 @@
     
     {% if media_type == "youtube" %}
       <!-- make sure link has embed  tag-->
-      <iframe music_video src="https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
+      <iframe music_video src="https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
 
     {% elif media_type == "video" %}
       <video music_video controls>
@@ -62,7 +62,12 @@
   <div bottom_section>
 
     <div music__footer>
-      
+      <div previous_song>
+
+      </div>
+      <div next_song>
+
+      </div>
     </div>
     
     <label play__container for="play_button" >

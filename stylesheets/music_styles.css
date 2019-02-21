@@ -225,6 +225,7 @@
   background-color: #2b3136;
   width: 70%;
   padding: 10px;
+  display: flex;
   height: 40px; }
 
 .loader-container {
@@ -321,7 +322,9 @@
     animation-delay: 1000ms; }
 
 .video__container {
-  margin: 20px 0px; }
+  margin: 5px 0px;
+  width: 100%;
+  height: 190px; }
   .video__container .music__video {
     width: 100%;
     height: 100%; }
@@ -349,26 +352,26 @@
   box-sizing: border-box;
   height: 20px;
   width: 20px;
-  border-color: transparent transparent transparent #F1F5F8;
   transition: 100ms all ease;
   will-change: border-width;
   cursor: pointer;
   border-style: solid;
-  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  border-width: calc(20px/2) 0 calc(20px/2) 20px;
+  border-color: transparent transparent transparent #F1F5F8; }
   .button_next::after {
     position: absolute;
     content: " ";
-    left: -40px;
-    top: -20px/2;
+    left: calc(-20px * 2);
+    top: calc(-20px / 2 );
     box-sizing: border-box;
     height: 20px;
     width: 20px;
-    border-color: transparent transparent transparent #F1F5F8;
     transition: 100ms all ease;
     will-change: border-width;
     cursor: pointer;
     border-style: solid;
-    border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+    border-width: calc(20px/2) 0 calc(20px/2) 20px;
+    border-color: transparent transparent transparent #F1F5F8; }
   .button_next:hover {
     border-color: transparent transparent transparent #DAE1E7; }
     .button_next:hover::after {
@@ -379,26 +382,26 @@
   box-sizing: border-box;
   height: 20px;
   width: 20px;
-  border-color: transparent #F1F5F8 transparent transparent;
   transition: 100ms all ease;
   will-change: border-width;
   cursor: pointer;
   border-style: solid;
-  border-width: calc(20px/2) 20px calc(20px/2) 0; }
+  border-width: calc(20px/2) 20px calc(20px/2) 0;
+  border-color: transparent #F1F5F8 transparent transparent; }
   .button_previous::after {
     position: absolute;
     content: " ";
-    right: -40px;
-    top: -20px/2;
+    right: calc(-20px * 2);
+    top: calc(-20px / 2 );
     box-sizing: border-box;
     height: 20px;
     width: 20px;
-    border-color: transparent #F1F5F8 transparent transparent;
     transition: 100ms all ease;
     will-change: border-width;
     cursor: pointer;
     border-style: solid;
-    border-width: calc(20px/2) 20px calc(20px/2) 0; }
+    border-width: calc(20px/2) 20px calc(20px/2) 0;
+    border-color: transparent #F1F5F8 transparent transparent; }
   .button_previous:hover {
     border-color: transparent #DAE1E7 transparent transparent; }
     .button_previous:hover::after {
@@ -408,18 +411,18 @@
   box-sizing: border-box;
   height: 20px;
   width: 20px;
-  border-color: transparent transparent transparent #F1F5F8;
   transition: 100ms all ease;
   will-change: border-width;
   cursor: pointer;
   border-style: solid;
-  border-width: calc(20px/2) 0 calc(20px/2) 20px; }
+  border-width: calc(20px/2) 0 calc(20px/2) 20px;
+  border-color: transparent transparent transparent #F1F5F8; }
   .play__button:hover {
     border-color: transparent transparent transparent #DAE1E7; }
 
 .bottom_musicbox {
   position: relative; }
-  .bottom_musicbox .box__play__container {
+  .bottom_musicbox .play__container {
     margin: 10px;
     position: absolute;
     right: 0;
@@ -433,18 +436,70 @@
     height: 60px;
     padding: 5px;
     cursor: pointer; }
-    .bottom_musicbox .box__play__container .box__play__button {
+    .bottom_musicbox .play__container .play__button {
       position: absolute;
       left: 25%;
       box-sizing: border-box;
       height: 30px;
       width: 30px;
-      border-color: transparent transparent transparent #794ACF;
       transition: 100ms all ease;
       will-change: border-width;
       cursor: pointer;
       border-style: solid;
-      border-width: calc(30px/2) 0 calc(30px/2) 30px; }
+      border-width: calc(30px/2) 0 calc(30px/2) 30px;
+      border-color: transparent transparent transparent #794ACF; }
+  .bottom_musicbox .next__button, .bottom_musicbox .previous__button {
+    position: relative;
+    margin: 0 10px 0 10px; }
+  .bottom_musicbox .next__button {
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+    border-style: solid;
+    border-width: calc(20px/2) 0 calc(20px/2) 20px;
+    border-color: transparent transparent transparent #794ACF; }
+    .bottom_musicbox .next__button::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: -10px;
+      box-sizing: border-box;
+      height: 20px;
+      width: 20px;
+      transition: 100ms all ease;
+      will-change: border-width;
+      cursor: pointer;
+      border-style: solid;
+      border-width: calc(20px/2) 0 calc(20px/2) 20px;
+      border-color: transparent transparent transparent #794ACF; }
+  .bottom_musicbox .previous__button {
+    margin-left: 30px;
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+    border-style: solid;
+    border-width: calc(20px/2) 20px calc(20px/2) 0;
+    border-color: transparent #794ACF transparent transparent; }
+    .bottom_musicbox .previous__button::after {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: -10px;
+      box-sizing: border-box;
+      height: 20px;
+      width: 20px;
+      transition: 100ms all ease;
+      will-change: border-width;
+      cursor: pointer;
+      border-style: solid;
+      border-width: calc(20px/2) 20px calc(20px/2) 0;
+      border-color: transparent #794ACF transparent transparent; }
 
 #play_button:checked ~ #music_box label #play {
   border-style: double;
