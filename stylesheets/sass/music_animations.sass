@@ -42,4 +42,44 @@
   83.34%
     +animation_property(transform,scaleY(3))
     background: #673AB7
+
+
+
++keyframes(slideInUp)
+  0%
+    +animation_property(transform,translate3d(0, 0, 0))
+    opacity: 0
+    display: none
+    visibility: hidden
   
+  0.01%
+    +animation_property(transform,translate3d(0, -100%, 0))
+    opacity: 0
+    display: block
+    visibility: visible
+
+
+  100%
+    +animation_property(transform,translate3d(0, 0, 0))
+    opacity: 1
+    display: block
+    visibility: visible
+
+
++keyframes(slideOutDown)
+  0%
+    +animation_property(transform,translate3d(0, 0, 0))
+    opacity: 1
+    display: block
+    visibility: visible
+
+  99.99%
+    +animation_property(transform,translate3d(0, -100%, 0))
+    opacity: 0
+    visibility: hidden
+    display: none
+
+  100%
+    +animation_property(transform,translate3d(0,0,0))
+    display: none
+    visibility: hidden
