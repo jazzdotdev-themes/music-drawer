@@ -4,13 +4,34 @@
   background-color: rgba(29, 28, 28, 0.5)
   position: fixed
   bottom: 0
+  display: block
 
-.music_bar_controls
-  padding: 10px
-  // display: flex
-  // justify-content: center
-  // align-items: center
-  
-  .bar__controls
-    @extend .music__controls
-    width: 200px
+  .button_show
+    background-color: #000000
+    border-radius: 50%
+    height: 30px
+    width: 30px
+    position: absolute
+    margin: 5px 10px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .arrow_button
+      width: 10px
+      height: 10px
+      transform: rotateZ(45deg)
+      border-bottom: #FFF solid 5px
+      border-right: #FFF solid 5px
+      will-change: transform
+
+  .music_bar_controls
+    padding: 10px
+    // display: flex
+    // justify-content: center
+    // align-items: center
+    
+    .bar__controls
+      @extend .music__controls
+      width: 200px
