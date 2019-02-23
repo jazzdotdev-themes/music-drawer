@@ -8,12 +8,26 @@
             left: 30%
 
 #music_box
-  // @extend .container__hidden
-  @extend .fadeOutDown
+  // @extend .animated
+  // @extend .zoomOut
+  visibility: hidden
+  display: none
 
 
-#music_box_controller
+#music_box_min
   &:checked 
-    ~ #music_box
-      // @extend .container__visible
-      @extend .fadeInUp
+    ~ 
+      #music_box
+        @extend .animated
+        @extend .zoomIn
+        visibility: visible
+        display: block
+
+      
+      div 
+        label
+          #arrow_min
+
+            transform: rotateZ(-45deg)
+
+      

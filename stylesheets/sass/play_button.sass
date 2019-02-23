@@ -21,6 +21,15 @@
     // border-image-width: $border_shape
     border-color: transparent $color transparent transparent
 
+=triangle_color($color: #000 ,$direction: "right")
+  
+  @if $direction == "right"    
+    border-color: transparent transparent transparent $color
+  
+  @else if $direction == "left"
+    border-color: transparent $color transparent transparent
+    
+
 // paused state
 =paused($size)
   border-style: double
@@ -37,7 +46,6 @@
   position: relative
   +triangle(20px,"right",#F1F5F8)
 
-  // +triangle_right(#F1F5F8,20px)
   &::after
     position: absolute
 
@@ -46,12 +54,12 @@
     top: calc(-20px / 2 )
     +triangle(20px,"right",#F1F5F8)
 
-    // +triangle_right(#F1F5F8,20px)
 
   &:hover
-    border-color: transparent transparent transparent #DAE1E7
+    +triangle_color(#DAE1E7,"right")
     &::after
-      border-color: transparent transparent transparent #DAE1E7
+      +triangle_color(#DAE1E7,"right")
+
 
 .button_previous
   position: relative
@@ -67,19 +75,16 @@
     +triangle(20px,"left",#F1F5F8)
 
   &:hover
-    border-color: transparent #DAE1E7 transparent transparent 
+    +triangle_color(#DAE1E7,"left")     
     &::after
-      border-color: transparent #DAE1E7 transparent transparent 
+    +triangle_color(#DAE1E7,"left")       
 
 
       
 .play__button
   +triangle(20px,"right",#F1F5F8)
-
-  
   &:hover
-    border-color: transparent transparent transparent #DAE1E7
-    
+    +triangle_color(#DAE1E7,"right")       
 
 
 .bottom_musicbox  
@@ -92,6 +97,7 @@
     border-style: solid
     border-radius: 50%
     border-color: #2779BD
+    background-color: #0d1013
     display: flex
     align-items: center
     // justify-content: center
@@ -100,14 +106,18 @@
     padding: 5px
     cursor: pointer
     
+    &:hover
+      background-color: #EFF8FF
+
+      .play__button
+        +triangle_color(#191E38,"right") 
+
     // linear-gradient(135deg,#191E38, #794ACF)
 
     .play__button
       position: absolute   
       left: 25% 
-      +triangle(30px,"right",#794ACF)
-
-      // +triangle_right(#794ACF,30px)
+      +triangle(30px,"right",#794ACF)              
 
   %bar_button
     position: relative
@@ -115,6 +125,7 @@
 
   .next__button
     @extend %bar_button
+    margin-right: 30px
     +triangle(20px,"right",#794ACF)
     
     &::after

@@ -9,10 +9,11 @@
 
 
 {% set media_type = "youtube" %}
+{% set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" %}
 
 <input hidden type="checkbox" id="play_button">
 
-<input hidden type="checkbox" id="music_box_controller">
+<input hidden type="checkbox" id="music_box_min">
 
 
 <div music__box id="music_box">
@@ -46,7 +47,7 @@
     
     {% if media_type == "youtube" %}
       <!-- make sure link has embed  tag-->
-      <iframe music_video src="https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture">
+      <iframe music_video src="{{ media_src }}&enablejsapi=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" id="youtube_video">
       </iframe>
 
     {% elif media_type == "video" %}
@@ -55,7 +56,9 @@
         <source src="" type="video/ogg">
         Your browser does not support the video tag.
       </video>
+
     {% else %}
+
 
     {% endif %}
 
@@ -85,3 +88,35 @@
   
 
 </div>
+
+{% if media_type=="youtube" %}
+<script>
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  
+  var centinel = false;
+  var button = document.getElementById('play');
+  var player = document.getElementById('youtube_video');
+
+  button.addEventListener('click', function(){
+    console.log("hey")
+    // player.stopVideo();
+    // player[0].contentWindow.postMessage(`{
+    //   "event":"command",
+    //   "func":"${'stopVideo'}",
+    //   "args":""
+    // }`, '*');
+    // if (condition) {
+      
+    // }
+    // centinel = !centinel;
+  });
+
+
+
+</script>
+{% endif %}
