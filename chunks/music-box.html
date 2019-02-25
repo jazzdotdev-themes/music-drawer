@@ -9,7 +9,14 @@
 
 
 {% set media_type = "youtube" %}
-{% set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?autoplay=1" %}
+{% set youtube_list = "youtube" %}
+
+{# set media_src = "https://www.youtube.com/embed/oTeUdJky9rY?&list=PLtZQePGglER-9VQj309VopnppGu9fMCg3" #}
+
+{% set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?" %}
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/oTeUdJky9rY?controls=0&list=PLtZQePGglER-9VQj309VopnppGu9fMCg3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
 
 <input hidden type="checkbox" id="play_button">
 
@@ -47,8 +54,9 @@
     
     {% if media_type == "youtube" %}
       <!-- make sure link has embed  tag-->
-      <iframe music_video src="{{ media_src }}&enablejsapi=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" id="youtube_video">
-      </iframe>
+      <!--for no controls &controls=0 -->
+      <iframe music_video src="{{ media_src }}&enablejsapi=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
+      </iframe>     
 
     {% elif media_type == "video" %}
       <video music_video controls>
@@ -69,19 +77,43 @@
   <div bottom_section>
 
     <div music__footer>
-      <div previous_song>
+      <div control_wrapper> 
+        <div volume_controllers>
+          <!-- <i class="mdi mdi-volume-high"></i>
+          <i class="mdi mdi-volume-low"></i>
+          <i class="mdi mdi-volume-medium"></i>
+          <i class="mdi mdi-volume-off"></i> -->
+  
+        
+        </div>
+
+        <div list_controllers>
+          <div control_btn_cont id="next_song"> 
+            <div previous_song>
+      
+            </div>
+
+          </div>
+          <div control_btn_cont id="previous_song">
+            <div next_song>
+      
+            </div>
+          </div>
+  
+        </div>
 
       </div>
-      <div next_song>
 
-      </div>
+
+      <label play__container for="play_button" >
+        <div play__button id="play">
+  
+        </div>
+      </label>
+      
+
     </div>
     
-    <label play__container for="play_button" >
-      <div play__button id="play">
-
-      </div>
-    </label>
 
   </div>
   
@@ -91,29 +123,38 @@
 
 {% if media_type=="youtube" %}
 <script>
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
   
-  var centinel = false;
-  var button = document.getElementById('play');
+  var isPlaying = false;
+  var button = document.getElementById('play_button');
   var player = document.getElementById('youtube_video');
 
+
+
+  function callPlayer(frame_id, func, args) {
+    if (window.jQuery && frame_id instanceof jQuery) frame_id = frame_id.get(0).id;
+      var iframe = document.getElementById(frame_id);
+    if (iframe && iframe.tagName.toUpperCase() != 'IFRAME') {
+        iframe = iframe.getElementsByTagName('iframe')[0];
+    }
+    if (iframe) {
+      // Frame exists, 
+      iframe.contentWindow.postMessage(JSON.stringify({
+        "event": "command",
+        "func": func,
+        "args": args || [],
+        "id": frame_id
+      }), "*");
+    }
+  }
+
   button.addEventListener('click', function(){
-    console.log("hey")
-    // player.stopVideo();
-    // player[0].contentWindow.postMessage(`{
-    //   "event":"command",
-    //   "func":"${'stopVideo'}",
-    //   "args":""
-    // }`, '*');
-    // if (condition) {
-      
-    // }
-    // centinel = !centinel;
+    if (isPlaying) {
+      callPlayer("youtube_video","pauseVideo");      
+    } else {
+      callPlayer("youtube_video", "playVideo");      
+    }    
+    isPlaying = !isPlaying;
+
   });
 
 

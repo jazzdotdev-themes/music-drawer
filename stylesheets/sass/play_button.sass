@@ -35,49 +35,7 @@
   border-style: double
   border-width: 0px 0 0px $size
 
-.music__controls
-  background-color: transparent
-  width: 250px
-  display: flex
-  justify-content: space-between
-
-        
-.button_next
-  position: relative
-  +triangle(20px,"right",#F1F5F8)
-
-  &::after
-    position: absolute
-
-    content: " "
-    left: calc(-20px * 2)
-    top: calc(-20px / 2 )
-    +triangle(20px,"right",#F1F5F8)
-
-
-  &:hover
-    +triangle_color(#DAE1E7,"right")
-    &::after
-      +triangle_color(#DAE1E7,"right")
-
-
-.button_previous
-  position: relative
-  +triangle(20px,"left",#F1F5F8)
-
-  
-  &::after
-    position: absolute
-
-    content: " "
-    right: calc(-20px * 2)
-    top: calc(-20px / 2 )
-    +triangle(20px,"left",#F1F5F8)
-
-  &:hover
-    +triangle_color(#DAE1E7,"left")     
-    &::after
-    +triangle_color(#DAE1E7,"left")       
+    
 
 
       
@@ -89,9 +47,9 @@
 
 .bottom_musicbox  
   position: relative
+
   .play__container
-    margin: 10px
-    position: absolute
+    position: relative
     right: 0
     border-width: 2px
     border-style: solid
@@ -100,7 +58,6 @@
     background-color: #0d1013
     display: flex
     align-items: center
-    // justify-content: center
     width: 60px
     height: 60px
     padding: 5px
@@ -119,31 +76,3 @@
       left: 25% 
       +triangle(30px,"right",#794ACF)              
 
-  %bar_button
-    position: relative
-    margin: 0 10px 0 10px
-
-  .next__button
-    @extend %bar_button
-    margin-right: 30px
-    +triangle(20px,"right",#794ACF)
-    
-    &::after
-      content: ""
-      position: absolute
-      right: -20px
-      top: -10px
-      +triangle(20px,"right",#794ACF)
-
-
-  
-  .previous__button
-    @extend %bar_button
-    margin-left: 30px
-    +triangle(20px,"left",#794ACF)
-    &::after
-      content: ""
-      position: absolute
-      left: -20px
-      top: -10px
-      +triangle(20px,"left",#794ACF)
