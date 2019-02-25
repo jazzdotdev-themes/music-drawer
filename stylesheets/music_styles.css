@@ -3143,6 +3143,8 @@
       background-color: #EFF8FF; }
       .bottom_musicbox .play__container:hover .play__button {
         border-color: transparent transparent transparent #191E38; }
+    .bottom_musicbox .play__container:active .play__button {
+      border-color: transparent transparent transparent #794ACF; }
     .bottom_musicbox .play__container .play__button {
       position: absolute;
       left: 25%;
@@ -3191,6 +3193,14 @@
       border-color: transparent #191E38 transparent transparent; }
       .bottom_musicbox .control_btn_cont:hover .previous__button::after {
         border-color: #191E38; }
+  .bottom_musicbox .control_btn_cont:active .next__button {
+    border-color: transparent transparent transparent #794ACF; }
+    .bottom_musicbox .control_btn_cont:active .next__button::after {
+      border-color: #794ACF; }
+  .bottom_musicbox .control_btn_cont:active .previous__button {
+    border-color: transparent #794ACF transparent transparent; }
+    .bottom_musicbox .control_btn_cont:active .previous__button::after {
+      border-color: #794ACF; }
 .bottom_musicbox .next__button {
   left: -4px;
   top: 3px;
