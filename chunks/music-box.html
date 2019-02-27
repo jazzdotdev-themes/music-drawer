@@ -1,21 +1,8 @@
-<!-- <audio controls>
-  <source src="song.ogg" type="audio/ogg">
-  <source src="https://coa.eaoe.cc/1d4f4fc948e23860bae15ad07c1ef5c1/AMTAQ-AJS4Y" type="audio/mpeg">
-  <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-  
-  Your browser does not support the audio element.
-  
-</audio> -->
-
-
-{% set media_type = "youtube" %}
-{% set youtube_list = "youtube" %}
-
 {# set media_src = "https://www.youtube.com/embed/oTeUdJky9rY?&list=PLtZQePGglER-9VQj309VopnppGu9fMCg3" #}
 
-{% set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?" %}
+{# set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?" #}
 
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/oTeUdJky9rY?controls=0&list=PLtZQePGglER-9VQj309VopnppGu9fMCg3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
 
 
 <input hidden type="checkbox" id="play_button">
@@ -52,21 +39,29 @@
     
     <div video_feed>
     
-    {% if media_type == "youtube" %}
+    {% if music_box.youtube %}
       <!-- make sure link has embed  tag-->
       <!--for no controls &controls=0 -->
-      <iframe music_video src="{{ media_src }}&enablejsapi=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
+<iframe music_video src="https://www.youtube.com/embed/{{ music_box.youtube.video_id }}{% if music_box.youtube.list_id %}&list={{ music_box.youtube.list_id }}{% endif %}&enablejsapi=1&controls=0"
+  frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
       </iframe>     
 
-    {% elif media_type == "video" %}
+    {% elif music_box.video %}
       <video music_video controls>
         <source src="" type="video/mp4">
         <source src="" type="video/ogg">
         Your browser does not support the video tag.
       </video>
 
-    {% else %}
-
+    {% elif music_box.audio %}
+      <audio controls>
+        <source src="song.ogg" type="audio/ogg">
+        <source src="https://coa.eaoe.cc/1d4f4fc948e23860bae15ad07c1ef5c1/AMTAQ-AJS4Y" type="audio/mpeg">
+        <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
+        
+        Your browser does not support the audio element.
+        
+      </audio>
 
     {% endif %}
 
@@ -79,6 +74,10 @@
     <div music__footer>
       <div control_wrapper> 
         <div volume_controllers>
+          <i volume_high_icon>
+
+          </i>
+          <input volume_slider type="range" min="1" max="100" value="100" id="volume">
           <!-- <i class="mdi mdi-volume-high"></i>
           <i class="mdi mdi-volume-low"></i>
           <i class="mdi mdi-volume-medium"></i>
@@ -88,28 +87,29 @@
         </div>
 
         <div list_controllers>
-          <div control_btn_list id="previous_song"> 
+          <button control_btn_list reset_styles="true" onclick="previousVideo()" id="previous_song"> 
             <div previous_song>
       
             </div>
 
-          </div>
-          <div control_btn_list id="next_song">
+          </button>
+          <button control_btn_list reset_styles="true" onclick="nextVideo()" id="next_song">
             <div next_song>
       
             </div>
-          </div>
+          </button>
   
         </div>
 
       </div>
-
-
-      <label play__container for="play_button" >
+      
+      <!-- play button -->
+      <label play__container for="play_button" onclick="playPause()">
         <div play__button id="play">
   
-        </div>
+        </div>                    
       </label>
+      
       
 
     </div>
@@ -120,44 +120,3 @@
   
 
 </div>
-
-{% if media_type=="youtube" %}
-<script>
-  
-  var isPlaying = false;
-  var button = document.getElementById('play_button');
-  var player = document.getElementById('youtube_video');
-
-
-
-  function callPlayer(frame_id, func, args) {
-    if (window.jQuery && frame_id instanceof jQuery) frame_id = frame_id.get(0).id;
-      var iframe = document.getElementById(frame_id);
-    if (iframe && iframe.tagName.toUpperCase() != 'IFRAME') {
-        iframe = iframe.getElementsByTagName('iframe')[0];
-    }
-    if (iframe) {
-      // Frame exists, 
-      iframe.contentWindow.postMessage(JSON.stringify({
-        "event": "command",
-        "func": func,
-        "args": args || [],
-        "id": frame_id
-      }), "*");
-    }
-  }
-
-  button.addEventListener('click', function(){
-    if (isPlaying) {
-      callPlayer("youtube_video","pauseVideo");      
-    } else {
-      callPlayer("youtube_video", "playVideo");      
-    }    
-    isPlaying = !isPlaying;
-
-  });
-
-
-
-</script>
-{% endif %}

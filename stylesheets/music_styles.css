@@ -2983,6 +2983,7 @@
       width: 100%; }
     .music__footer .control_wrapper .volume_controllers {
       height: 30px;
+      display: flex;
       width: 100%; }
 
 .box-loader-container {
@@ -3123,6 +3124,9 @@
   .play__button:hover {
     border-color: transparent transparent transparent #DAE1E7; }
 
+.play_btn {
+  border-radius: 50%; }
+
 .bottom_musicbox {
   position: relative; }
   .bottom_musicbox .play__container {
@@ -3180,25 +3184,33 @@
   margin: 0px 10px;
   cursor: pointer;
   position: relative;
-  width: 50px;
+  width: 60px;
   height: 35px;
   border-radius: 0.5rem; }
   .bottom_musicbox .control_btn_list:hover {
     background-color: #EFF8FF; }
     .bottom_musicbox .control_btn_list:hover .next__button {
       border-color: transparent transparent transparent #191E38; }
+      .bottom_musicbox .control_btn_list:hover .next__button::before {
+        border-color: transparent transparent transparent #191E38; }
       .bottom_musicbox .control_btn_list:hover .next__button::after {
         border-color: #191E38; }
     .bottom_musicbox .control_btn_list:hover .previous__button {
       border-color: transparent #191E38 transparent transparent; }
+      .bottom_musicbox .control_btn_list:hover .previous__button::before {
+        border-color: transparent #191E38 transparent transparent; }
       .bottom_musicbox .control_btn_list:hover .previous__button::after {
         border-color: #191E38; }
   .bottom_musicbox .control_btn_list:active .next__button {
     border-color: transparent transparent transparent #794ACF; }
+    .bottom_musicbox .control_btn_list:active .next__button::before {
+      border-color: transparent transparent transparent #794ACF; }
     .bottom_musicbox .control_btn_list:active .next__button::after {
       border-color: #794ACF; }
   .bottom_musicbox .control_btn_list:active .previous__button {
     border-color: transparent #794ACF transparent transparent; }
+    .bottom_musicbox .control_btn_list:active .previous__button::before {
+      border-color: transparent #794ACF transparent transparent; }
     .bottom_musicbox .control_btn_list:active .previous__button::after {
       border-color: #794ACF; }
 .bottom_musicbox .next__button {
@@ -3217,13 +3229,27 @@
   .bottom_musicbox .next__button::after {
     content: "";
     position: absolute;
-    right: -6px;
+    right: -26px;
     top: -10px;
     border: 2px solid #794ACF;
     height: 20px;
     width: 0px; }
+  .bottom_musicbox .next__button::before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: -10px;
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+    border-style: solid;
+    border-width: calc(20px/2) 0 calc(20px/2) 20px;
+    border-color: transparent transparent transparent #794ACF; }
 .bottom_musicbox .previous__button {
-  left: -20px;
+  left: 1px;
   top: 3px;
   margin-left: 30px;
   box-sizing: border-box;
@@ -3257,5 +3283,19 @@
     border-style: solid;
     border-width: calc(20px/2) 20px calc(20px/2) 0;
     border-color: transparent #794ACF transparent transparent; }
+
+button[reset_styles="true"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit; }
+
+.volume_controllers .music_box_volume_icon {
+  color: #794ACF;
+  font-size: 30px;
+  width: 30%; }
 
 /*# sourceMappingURL=music_styles.css.map */

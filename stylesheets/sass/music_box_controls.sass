@@ -1,0 +1,103 @@
+$primary_color: #794ACF
+$dark_color: #191E38
+$light_background: #EFF8FF
+
+
+.bottom_musicbox  
+
+
+
+  %bar_button
+    position: absolute
+    margin: 5px 10px 5px 10px
+    // border-radius: .5rem
+  .control_btn_list
+    margin: 0px 10px
+    cursor: pointer
+    position: relative
+    width: 60px
+    height: 35px
+    border-radius: .5rem
+
+    &:hover
+      background-color: $light_background
+      .next__button
+        +triangle_color($dark_color,"right") 
+        &::before
+          +triangle_color($dark_color,"right") 
+        &::after
+          border-color: $dark_color
+
+      .previous__button
+        +triangle_color($dark_color,"left") 
+        &::before
+          +triangle_color($dark_color,"left") 
+
+        &::after
+          border-color: $dark_color
+    
+    &:active
+      .next__button
+        +triangle_color($primary_color,"right") 
+        &::before
+          +triangle_color($primary_color,"right") 
+        &::after
+          border-color: $primary_color
+
+      .previous__button
+        +triangle_color($primary_color,"left") 
+        &::before
+          +triangle_color($primary_color,"left") 
+        
+        &::after
+          border-color: $primary_color
+
+
+
+  .next__button
+    left: -4px
+    top: 3px
+    @extend %bar_button
+    margin-right: 30px
+    +triangle(20px,"right",$primary_color)
+    
+    &::after
+
+      content: ""
+      position: absolute
+      right: -26px
+      top: -10px      
+      border: 2px solid $primary_color
+      height: 20px
+      width: 0px
+
+    &::before
+      content: ""	
+      position: absolute	
+      right: -20px	
+      top: -10px	
+      +triangle(20px,"right",$primary_color)
+
+  
+  .previous__button
+    left: 1px
+    top: 3px
+    @extend %bar_button
+    margin-left: 30px
+    +triangle(20px,"left",$primary_color)
+
+    &::after
+      content: ""
+      position: absolute
+      left: -26px
+      top: -10px      
+      border: 2px solid $primary_color
+      height: 20px
+      width: 0px
+
+    &::before
+      content: ""	
+      position: absolute	
+      left: -20px	
+      top: -10px	
+      +triangle(20px,"left",$primary_color)

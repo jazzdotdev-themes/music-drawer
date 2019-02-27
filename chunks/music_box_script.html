@@ -1,0 +1,48 @@
+{% if music_box.youtube %}
+<script>
+  let playCheckbox = document.getElementById('play_button');
+  let isPlaying = false;
+  let player = document.getElementById('youtube_video');
+
+
+
+  function callPlayer(frame_id, func, args) {
+    if (window.jQuery && frame_id instanceof jQuery) frame_id = frame_id.get(0).id;
+    var iframe = document.getElementById(frame_id);
+    if (iframe && iframe.tagName.toUpperCase() != 'IFRAME') {
+      iframe = iframe.getElementsByTagName('iframe')[0];
+    }
+    if (iframe) {
+      // Frame exists, 
+      iframe.contentWindow.postMessage(JSON.stringify({
+        "event": "command",
+        "func": func,
+        "args": args || [],
+        "id": frame_id
+      }), "*");
+    }
+  }
+
+  function playPause() {
+    if (isPlaying) {
+      callPlayer("youtube_video", "pauseVideo");
+    } else {
+      callPlayer("youtube_video", "playVideo");
+    }
+    isPlaying = !isPlaying;
+  }
+
+  function nextVideo() {
+    callPlayer("youtube_video", "nextVideo");
+    playCheckbox.checked = true;
+    isPlaying = true;
+  }
+
+  function previousVideo() {
+    callPlayer("youtube_video", "previousVideo");
+    playCheckbox.checked = true;
+    isPlaying = true;
+  }
+
+</script>
+{% endif %}

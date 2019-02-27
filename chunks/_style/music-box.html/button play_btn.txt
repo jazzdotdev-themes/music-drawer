@@ -1,0 +1,2 @@
+reset_button
+play_btn
