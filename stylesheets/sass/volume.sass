@@ -1,6 +1,42 @@
+=thumb
+  width: 5px
+  height: 25px
+  border-radius: .5rem
+  background: #794ACF
+  cursor: pointer
+
 .volume_controllers
 
   .music_box_volume_icon
     color: #794ACF
     font-size: 30px
     width: 30%
+  .volume_container
+    border-radius: .5rem
+    padding: 2px 8px 8px
+    background-color: transparent
+    &:hover
+      background-color: #EFF8FF
+      .volume_slider
+        background: #794ACF
+        &::-webkit-slider-thumb 
+          background: #191E38
+        &::-moz-range-thumb
+          background: #191E38
+
+    .volume_slider
+      -webkit-appearance: none
+      background: #B8C2CC
+      width: 100%
+      border-radius: 0.5rem
+      outline: none
+      height: 5px
+      cursor: pointer
+      
+      &::-webkit-slider-thumb 
+        +thumb
+        -webkit-appearance: none
+        appearance: none
+
+      &::-moz-range-thumb
+        +thumb

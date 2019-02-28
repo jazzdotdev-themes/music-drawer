@@ -4,6 +4,8 @@
   let isPlaying = false;
   let player = document.getElementById('youtube_video');
 
+  let volumeSld = document.getElementById('volume_slider');
+
 
 
   function callPlayer(frame_id, func, args) {
@@ -43,6 +45,11 @@
     playCheckbox.checked = true;
     isPlaying = true;
   }
+
+  volumeSld.oninput = function () {
+    callPlayer("youtube_video", "setVolume",[this.value]);
+  }
+
 
 </script>
 {% endif %}

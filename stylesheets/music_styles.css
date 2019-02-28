@@ -2984,6 +2984,7 @@
     .music__footer .control_wrapper .volume_controllers {
       height: 30px;
       display: flex;
+      align-items: center;
       width: 100%; }
 
 .box-loader-container {
@@ -3111,26 +3112,11 @@
       transition: transform 1s;
       will-change: transform; }
 
-.play__button {
-  box-sizing: border-box;
-  height: 20px;
-  width: 20px;
-  transition: 100ms all ease;
-  will-change: border-width;
-  cursor: pointer;
-  border-style: solid;
-  border-width: calc(20px/2) 0 calc(20px/2) 20px;
-  border-color: transparent transparent transparent #F1F5F8; }
-  .play__button:hover {
-    border-color: transparent transparent transparent #DAE1E7; }
-
-.play_btn {
-  border-radius: 50%; }
-
 .bottom_musicbox {
   position: relative; }
   .bottom_musicbox .play__container {
     position: relative;
+    margin-left: 5px;
     right: 0;
     border-width: 2px;
     border-style: solid;
@@ -3297,5 +3283,39 @@ button[reset_styles="true"] {
   color: #794ACF;
   font-size: 30px;
   width: 30%; }
+.volume_controllers .volume_container {
+  border-radius: 0.5rem;
+  padding: 2px 8px 8px;
+  background-color: transparent; }
+  .volume_controllers .volume_container:hover {
+    background-color: #EFF8FF; }
+    .volume_controllers .volume_container:hover .volume_slider {
+      background: #794ACF; }
+      .volume_controllers .volume_container:hover .volume_slider::-webkit-slider-thumb {
+        background: #191E38; }
+      .volume_controllers .volume_container:hover .volume_slider::-moz-range-thumb {
+        background: #191E38; }
+  .volume_controllers .volume_container .volume_slider {
+    -webkit-appearance: none;
+    background: #B8C2CC;
+    width: 100%;
+    border-radius: 0.5rem;
+    outline: none;
+    height: 5px;
+    cursor: pointer; }
+    .volume_controllers .volume_container .volume_slider::-webkit-slider-thumb {
+      width: 5px;
+      height: 25px;
+      border-radius: 0.5rem;
+      background: #794ACF;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none; }
+    .volume_controllers .volume_container .volume_slider::-moz-range-thumb {
+      width: 5px;
+      height: 25px;
+      border-radius: 0.5rem;
+      background: #794ACF;
+      cursor: pointer; }
 
 /*# sourceMappingURL=music_styles.css.map */
