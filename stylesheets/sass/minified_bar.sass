@@ -1,24 +1,29 @@
 .music_min_bar
 
-  width: 50px
+  width: 100px
   height: 150px
   background-color: #22292F
   position: fixed
+  display: flex
+  padding: 15px
   z-index: 40
-  top: 0
-  right: 0
+  top: 30px
+  right: 0px
   display: block
   border-radius: 0.5rem
   box-shadow: 0px 0px 4px 1px #000
+  opacity: .6
+  
+  &:hover
+    opacity: 1
 
   .button_show
     background-color: #000000
     border-radius: 50%
     height: 30px
     width: 30px
-    position: absolute
-    margin: 5px 10px
     cursor: pointer
+    flex-wrap: wrap
     display: flex
     justify-content: center
     align-items: center

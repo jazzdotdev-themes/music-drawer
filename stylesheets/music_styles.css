@@ -3082,24 +3082,28 @@
     animation-delay: 1000ms; }
 
 .music_min_bar {
-  width: 50px;
+  width: 100px;
   height: 150px;
   background-color: #22292F;
   position: fixed;
+  display: flex;
+  padding: 15px;
   z-index: 40;
-  top: 0;
-  right: 0;
+  top: 30px;
+  right: 0px;
   display: block;
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 4px 1px #000; }
+  box-shadow: 0px 0px 4px 1px #000;
+  opacity: 0.6; }
+  .music_min_bar:hover {
+    opacity: 1; }
   .music_min_bar .button_show {
     background-color: #000000;
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    position: absolute;
-    margin: 5px 10px;
     cursor: pointer;
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -3148,10 +3152,31 @@
       border-width: calc(30px/2) 0 calc(30px/2) 30px;
       border-color: transparent transparent transparent #794ACF; }
 
-#play_button:checked ~ #music_box label #play {
+.music_min_bar .music_bar_controls .play__container .play__button {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: calc(20px/2) 0 calc(20px/2) 20px;
+  border-color: transparent transparent transparent #F8FAFC; }
+
+#mute_button:checked ~ #music_box #high_vol {
+  display: none;
+  visibility: hidden; }
+#mute_button:checked ~ #music_box #low_vol {
+  display: block;
+  visibility: visible; }
+
+#play_button:checked ~ #music_box label div[play_triangle=""] {
   border-style: double;
-  border-width: 0px 0 0px 20px;
-  left: 30%; }
+  border-width: 0px 0 0px 30px;
+  left: 13px; }
+#play_button:checked ~ #min_music label div[play_triangle=""] {
+  border-style: double;
+  border-width: 0px 0 0px 20px; }
 
 #music_box {
   visibility: hidden;
@@ -3279,10 +3304,23 @@ button[reset_styles="true"] {
   cursor: pointer;
   outline: inherit; }
 
-.volume_controllers .music_box_volume_icon {
+.volume_controllers .volume_icon {
   color: #794ACF;
   font-size: 30px;
-  width: 30%; }
+  width: 30%;
+  cursor: pointer;
+  border-radius: 0.5rem; }
+  .volume_controllers .volume_icon:hover {
+    color: #191E38;
+    background-color: #EFF8FF; }
+  .volume_controllers .volume_icon:active {
+    color: #794ACF; }
+.volume_controllers .volume_off_icon {
+  display: none;
+  visibility: hidden; }
+.volume_controllers .volume_high_icon {
+  display: block;
+  visibility: visible; }
 .volume_controllers .volume_container {
   border-radius: 0.5rem;
   padding: 2px 8px 8px;

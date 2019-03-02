@@ -1,11 +1,29 @@
+#mute_button
+  &:checked
+    ~
+      #music_box
+        #high_vol 
+          display: none
+          visibility: hidden
+
+        #low_vol
+          display: block
+          visibility: visible
+
+
 #play_button  
   &:checked
-    ~ 
+    ~       
       #music_box   
         label     
-          #play
+          div[play_triangle=""]
+            +paused(30px)
+            left: 13px
+
+      #min_music
+        label     
+          div[play_triangle=""]
             +paused(20px)
-            left: 30%
 
 #music_box
   visibility: hidden

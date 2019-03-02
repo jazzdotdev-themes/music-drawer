@@ -1,3 +1,3 @@
 mdi
 mdi-volume-high
-music_box_volume_icon
+volume_high_icon

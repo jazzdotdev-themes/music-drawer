@@ -1,11 +1,6 @@
-{# set media_src = "https://www.youtube.com/embed/oTeUdJky9rY?&list=PLtZQePGglER-9VQj309VopnppGu9fMCg3" #}
-
-{# set media_src = "https://www.youtube.com/embed/1vrEljMfXYo?" #}
-
-
-
-
 <input hidden type="checkbox" id="play_button">
+
+<input hidden type="checkbox" id="mute_button">
 
 <input hidden type="checkbox" id="music_box_min">
 
@@ -74,17 +69,18 @@
     <div music__footer>
       <div control_wrapper> 
         <div volume_controllers>
-          <i volume_high_icon>
+          <label volume_icon for="mute_button" onclick="muteVideo()">
+              <i volume_high_icon id="high_vol"></i>
 
-          </i>
+              <i volume_off_icon id="low_vol"></i>
+
+          </label>
+
+
           <div volume_container> 
             <input volume_slider type="range" min="0" max="100" value="100" id="volume_slider">
 
           </div>
-          <!-- <i class="mdi mdi-volume-high"></i>
-          <i class="mdi mdi-volume-low"></i>
-          <i class="mdi mdi-volume-medium"></i>
-          <i class="mdi mdi-volume-off"></i> -->
   
         
         </div>
@@ -108,7 +104,7 @@
       
       <!-- play button -->
       <label play__container for="play_button" onclick="playPause()">
-        <div play__button id="play">
+        <div play__button id="play" play_triangle="">
   
         </div>                    
       </label>

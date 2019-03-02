@@ -1,9 +1,9 @@
 {% if music_box.youtube %}
 <script>
-  let playCheckbox = document.getElementById('play_button');
   let isPlaying = false;
+  let isMuted = false;
+  let playCheckbox = document.getElementById('play_button');
   let player = document.getElementById('youtube_video');
-
   let volumeSld = document.getElementById('volume_slider');
 
 
@@ -49,6 +49,16 @@
   volumeSld.oninput = function () {
     callPlayer("youtube_video", "setVolume",[this.value]);
   }
+
+  function muteVideo() {
+    if (isMuted) {
+      callPlayer("youtube_video", "unMute");      
+    }else{
+      callPlayer("youtube_video", "mute");
+    }
+    isMuted = !isMuted;
+  }
+  
 
 
 </script>

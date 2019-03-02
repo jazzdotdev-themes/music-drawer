@@ -7,10 +7,27 @@
 
 .volume_controllers
 
-  .music_box_volume_icon
+  .volume_icon
     color: #794ACF
     font-size: 30px
     width: 30%
+    cursor: pointer
+    border-radius: .5rem
+
+    &:hover
+      color: #191E38
+      background-color: #EFF8FF
+    &:active
+      color: #794ACF
+
+  .volume_off_icon
+    display: none
+    visibility: hidden
+
+  .volume_high_icon   
+    display: block
+    visibility: visible
+
   .volume_container
     border-radius: .5rem
     padding: 2px 8px 8px
