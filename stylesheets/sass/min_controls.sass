@@ -1,0 +1,61 @@
+$primary_color: #F8FAFC
+
+.music_min_bar  
+  .control_btn_list
+    border: 1px solid #5ac4c9
+
+    // background-color: #434431
+    border-radius: .5rem
+    margin: 0px 5px
+    position: relative
+    width: 30px
+    height: 30px
+
+    &:hover 
+      background-color: $primary_color
+      .next__button
+        +triangle_color(#22292F,"right")
+        &::after
+          border-color: #22292F
+      .previous__button
+        +triangle_color(#22292F,"left")
+        &::after
+          border-color: #22292F
+
+    
+    
+    .next__button
+      position: absolute
+      left: 4px
+      top: 6px
+
+      @extend %bar_button
+      // margin-right: 30px
+      +triangle(15px,"right",$primary_color)
+      
+      &::after
+
+        content: ""
+        position: absolute
+        right: -6px
+        top: -10px      
+        border: 2px solid $primary_color
+        height: 20px
+        width: 0px
+
+    .previous__button
+      position: absolute
+      top: 6px
+      left: 10px
+      @extend %bar_button
+      // margin-left: 30px
+      +triangle(15px,"left",$primary_color)
+
+      &::after
+        content: ""
+        position: absolute
+        left: -6px
+        top: -10px      
+        border: 2px solid $primary_color
+        height: 20px
+        width: 0px

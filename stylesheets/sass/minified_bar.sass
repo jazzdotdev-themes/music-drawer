@@ -1,15 +1,27 @@
+$primary_color: #F8FAFC
+
+=min_thumb
+  width: 5px
+  height: 20px
+  border-radius: .5rem
+  background: #F8FAFC
+  border: 1px solid #000
+  cursor: pointer
+
 .music_min_bar
 
   width: 100px
   height: 150px
-  background-color: #22292F
+  background-color: #0d1013
   position: fixed
   display: flex
-  padding: 15px
+  flex-wrap: wrap
+  align-items: top
+  justify-content: space-between
+  padding: 5px
   z-index: 40
-  top: 30px
+  top: 35px
   right: 0px
-  display: block
   border-radius: 0.5rem
   box-shadow: 0px 0px 4px 1px #000
   opacity: .6
@@ -17,24 +29,55 @@
   &:hover
     opacity: 1
 
-  .button_show
-    background-color: #000000
-    border-radius: 50%
-    height: 30px
-    width: 30px
-    cursor: pointer
-    flex-wrap: wrap
-    display: flex
-    justify-content: center
-    align-items: center
+  .volume_icon
+    border: 1px solid #5ac4c9
+    border-radius: .5rem
+    color: $primary_color
+    font-size: 20px
+    height: 25px
+    &:hover
+      background-color: $primary_color
+      color: #22292F
+    .volume_high_icon
+      display: block
 
-    .arrow_button
-      width: 10px
-      height: 10px
-      transform: rotateZ(-225deg)
+    .volume_off_icon
+      display: none
+
+
+  .volume_container
+    border: 1px solid #5ac4c9
+    height: 25px
+    border-radius: .5rem
+
+    width: 70%
+    // margin: 0px 5px
+    background-color: transparent
+    &:hover
+      background-color: #EFF8FF
+      .volume_slider
+        background: #22292F
+        &::-webkit-slider-thumb 
+          background: #000
+        &::-moz-range-thumb
+          background: #000
+
+    .volume_slider
+      border: 1px solid #5ac4c9
+
+      -webkit-appearance: none
+      background: #B8C2CC
+      width: 100%
+      border-radius: 0.5rem
+      outline: none
+      height: 5px
+      cursor: pointer
       
-      border-bottom: #FFF solid 5px
-      border-right: #FFF solid 5px
-      transition: transform 1s
+      &::-webkit-slider-thumb 
+        +min_thumb
+        -webkit-appearance: none
+        appearance: none
 
-      will-change: transform
+      &::-moz-range-thumb
+        +min_thumb
+

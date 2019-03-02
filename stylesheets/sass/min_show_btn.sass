@@ -1,0 +1,32 @@
+$primary_color: #F8FAFC
+
+.music_min_bar  
+
+  .button_show
+    // background-color: #040404
+    border: 1px solid #5ac4c9
+
+    border-radius: 50%
+    height: 30px
+    width: 30px
+    cursor: pointer    
+    display: flex
+    justify-content: center
+    align-items: center
+    &:hover 
+      background-color: $primary_color
+
+      .arrow_button
+        border-bottom-color: #22292F
+        border-right-color: #22292F
+
+    .arrow_button
+      width: 10px
+      height: 10px
+      transform: rotateZ(-225deg)
+      
+      border-bottom: $primary_color solid 5px
+      border-right: $primary_color solid 5px
+      transition: transform 1s
+
+      will-change: transform

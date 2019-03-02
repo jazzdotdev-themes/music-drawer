@@ -4,22 +4,36 @@
       
     </div>
   </label>
-
-  <div music_bar_controls>
-    <!-- play button -->
-    <label play__container for="play_button" onclick="playPause()">
-      <div play__button id="play" play_triangle="">
-
-      </div>
-    </label>
-  </div>
-  <div music_playing_info>
-    <div animated_bars>
-
+  <!-- play button -->
+  <label play__container for="play_button" onclick="playPause()">
+    <div play__button id="play" play_triangle="">
 
     </div>
-    <div music_info>
+  </label>
+  <button control_btn_list reset_styles="true" onclick="previousVideo()">
+    <div previous_song>
 
     </div>
+
+  </button>
+
+  <button control_btn_list reset_styles="true" onclick="nextVideo()">
+    <div next_song>
+
+    </div>
+  </button>
+
+  <label volume_icon for="mute_button" onclick="muteVideo()">
+    <i volume_high_icon id="high_vol"></i>
+
+    <i volume_off_icon id="low_vol"></i>
+
+  </label>
+
+
+  <div volume_container>
+    <input volume_slider type="range" min="0" max="100" value="100" id="min_volume_slider">
+
   </div>
+
 </div>
