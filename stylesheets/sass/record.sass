@@ -24,9 +24,28 @@ $record_size: 80px
     +animation_property("animation-name","rotating")
     +animation_property("animation-duration","3s")
     +animation_property("animation-iteration-count","infinite")
+    +animation_property("animation-timing-function","linear")
 
+  &.min-record
+    @extend %hide_record
+    position: absolute
+    right: 20px
+    z-index: -1
+    top: 0
 
+%hide_record
+  +animation_property("animation-name","rotating, hide_disk")
+  +animation_property("animation-duration","3s, 1s ")
+  +animation_property("animation-timing-function","linear , linear")
+  +animation_property("animation-iteration-count","infinite, 1")
+  +animation_property("animation-fill-mode","forwards")
 
+%show_record
+  +animation_property("animation-name","rotating, show_disk")
+  +animation_property("animation-duration","3s, 1s ")
+  +animation_property("animation-timing-function","linear , linear")
+  +animation_property("animation-iteration-count","infinite, 1")
+  +animation_property("animation-fill-mode","forwards")
 
 
 .record:after

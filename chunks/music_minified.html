@@ -1,47 +1,48 @@
-<div music_min_bar id="min_music" >
-  <label button_show_box for="music_box_min" >
-    <div arrow_button id="arrow_min">
-      
-    </div>
-  </label>
-
-  <button control_btn_list reset_styles="true" onclick="nextVideo()">
-    <div next_song>
-
-    </div>
-  </button>
+<div class="min_wrapper" id="wrap_min">
+  <div music_min_bar id="min_music" >
+    <label button_show_box for="music_box_min" >
+      <div arrow_button id="arrow_min">
+        
+      </div>
+    </label>
   
-  <!-- play button -->
-  <label play__container for="play_button" onclick="playPause()">
-    <div play__button id="play" play_triangle="">
-
-    </div>
-  </label>
-
-  <button control_btn_list reset_styles="true" onclick="previousVideo()">
-    <div previous_song>
-
-    </div>
-
-  </button>
-
+    <button control_btn_list reset_styles="true" onclick="nextVideo()">
+      <div next_song>
   
-
-  <label volume_icon for="mute_button" onclick="muteVideo()">
-    <i volume_high_icon id="high_vol"></i>
-
-    <i volume_off_icon id="low_vol"></i>
-
-  </label>
-
-
-  <div volume_container>
-    <input volume_slider orient="vertical" type="range" min="0" max="100" value="100" id="min_volume_slider">
-
+      </div>
+    </button>
+    
+    <!-- play button -->
+    <label play__container for="play_button" onclick="playPause()">
+      <div play__button id="play" play_triangle="">
+  
+      </div>
+    </label>
+  
+    <button control_btn_list reset_styles="true" onclick="previousVideo()">
+      <div previous_song>
+  
+      </div>
+  
+    </button>
+  
+    
+  
+    <label volume_icon for="mute_button" onclick="muteVideo()">
+      <i volume_high_icon id="high_vol"></i>
+  
+      <i volume_off_icon id="low_vol"></i>
+  
+    </label>
+  
+  
+    <div volume_container>
+      <input volume_slider orient="vertical" type="range" min="0" max="100" value="100" id="min_volume_slider">
+  
+    </div>
   </div>
-
+  <div record id="record" >
   
-</div>
-<div record>
+  </div>
 
 </div>

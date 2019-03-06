@@ -113,4 +113,30 @@
   100%
     +animation_property(transform,rotate(360deg))
 
++keyframes("hide_disk")
+  0%
+    right: 20px
+    visibility: visible
+
+  
+  99%
+    opacity: 0
+    visibility: visible
+
+  100%
+    visibility: hidden
+    right: -40px
     
++keyframes("show_disk")
+  0%
+    right: -40px    
+    visibility: hidden
+
+  
+  99%
+    opacity: 1
+    visibility: visible
+
+  100%
+    visibility: visible
+    right: 20px    

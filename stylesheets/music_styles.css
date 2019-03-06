@@ -2963,6 +2963,86 @@
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg); } }
+@-webkit-keyframes hide_disk {
+  0% {
+    right: 20px;
+    visibility: visible; }
+  99% {
+    opacity: 0;
+    visibility: visible; }
+  100% {
+    visibility: hidden;
+    right: -40px; } }
+@-moz-keyframes hide_disk {
+  0% {
+    right: 20px;
+    visibility: visible; }
+  99% {
+    opacity: 0;
+    visibility: visible; }
+  100% {
+    visibility: hidden;
+    right: -40px; } }
+@-ms-keyframes hide_disk {
+  0% {
+    right: 20px;
+    visibility: visible; }
+  99% {
+    opacity: 0;
+    visibility: visible; }
+  100% {
+    visibility: hidden;
+    right: -40px; } }
+@keyframes hide_disk {
+  0% {
+    right: 20px;
+    visibility: visible; }
+  99% {
+    opacity: 0;
+    visibility: visible; }
+  100% {
+    visibility: hidden;
+    right: -40px; } }
+@-webkit-keyframes show_disk {
+  0% {
+    right: -40px;
+    visibility: hidden; }
+  99% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    visibility: visible;
+    right: 20px; } }
+@-moz-keyframes show_disk {
+  0% {
+    right: -40px;
+    visibility: hidden; }
+  99% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    visibility: visible;
+    right: 20px; } }
+@-ms-keyframes show_disk {
+  0% {
+    right: -40px;
+    visibility: hidden; }
+  99% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    visibility: visible;
+    right: 20px; } }
+@keyframes show_disk {
+  0% {
+    right: -40px;
+    visibility: hidden; }
+  99% {
+    opacity: 1;
+    visibility: visible; }
+  100% {
+    visibility: visible;
+    right: 20px; } }
 .box-loader-container {
   position: relative;
   height: calc(3 * 10px + 20px );
@@ -3099,19 +3179,19 @@
 #mute_button:checked ~ #music_box .volume_off_icon {
   display: block;
   visibility: visible; }
-#mute_button:checked ~ #min_music .volume_high_icon {
+#mute_button:checked ~ #wrap_min #min_music .volume_high_icon {
   display: none;
   visibility: hidden; }
-#mute_button:checked ~ #min_music .volume_off_icon {
+#mute_button:checked ~ #wrap_min #min_music .volume_off_icon {
   display: block;
   visibility: visible; }
 
 #play_button:checked ~ #music_box label div[play_triangle=""] {
   border-style: double;
   border-width: 0px 0 0px 30px; }
-#play_button:checked ~ #min_music label div[play_triangle=""] {
+#play_button:checked ~ #wrap_min #min_music label div[play_triangle=""] {
   border-style: double;
-  border-width: 0px 0 0px 20px; }
+  border-width: 0px 0 0px 15px; }
 
 #music_box {
   visibility: hidden;
@@ -3538,20 +3618,23 @@ button[reset_styles="true"] {
       background: #F8FAFC;
       cursor: pointer; }
 
-.music_min_bar {
-  width: 50px;
-  height: auto;
-  background-color: #0d1013;
-  background-image: linear-gradient(135deg, #2a6669, #0d1013);
+.min_wrapper {
+  margin: 0;
+  padding: 0;
   position: fixed;
-  padding: 5px;
   z-index: 40;
   top: 35px;
   right: 5px;
-  box-shadow: 0px 0px 4px 1px #000;
   opacity: 0.6; }
-  .music_min_bar:hover {
+  .min_wrapper:hover {
     opacity: 1; }
+  .min_wrapper .music_min_bar {
+    width: 50px;
+    height: auto;
+    background-color: #0d1013;
+    background-image: linear-gradient(135deg, #2a6669, #0d1013);
+    padding: 5px;
+    box-shadow: 0px 0px 4px 1px #000; }
 
 .record-container {
   display: inline-block;
@@ -3585,7 +3668,71 @@ button[reset_styles="true"] {
     -moz-animation-iteration-count: infinite;
     -ms-animation-iteration-count: infinite;
     -o-animation-iteration-count: infinite;
-    animation-iteration-count: infinite; }
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear; }
+  .record.min-record {
+    position: absolute;
+    right: 20px;
+    z-index: -1;
+    top: 0; }
+
+.record.min-record {
+  -webkit-animation-name: rotating, hide_disk;
+  -moz-animation-name: rotating, hide_disk;
+  -ms-animation-name: rotating, hide_disk;
+  -o-animation-name: rotating, hide_disk;
+  animation-name: rotating, hide_disk;
+  -webkit-animation-duration: 3s, 1s ;
+  -moz-animation-duration: 3s, 1s ;
+  -ms-animation-duration: 3s, 1s ;
+  -o-animation-duration: 3s, 1s ;
+  animation-duration: 3s, 1s ;
+  -webkit-animation-timing-function: linear , linear;
+  -moz-animation-timing-function: linear , linear;
+  -ms-animation-timing-function: linear , linear;
+  -o-animation-timing-function: linear , linear;
+  animation-timing-function: linear , linear;
+  -webkit-animation-iteration-count: infinite, 1;
+  -moz-animation-iteration-count: infinite, 1;
+  -ms-animation-iteration-count: infinite, 1;
+  -o-animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+#play_button:checked ~ #wrap_min #record {
+  -webkit-animation-name: rotating, show_disk;
+  -moz-animation-name: rotating, show_disk;
+  -ms-animation-name: rotating, show_disk;
+  -o-animation-name: rotating, show_disk;
+  animation-name: rotating, show_disk;
+  -webkit-animation-duration: 3s, 1s ;
+  -moz-animation-duration: 3s, 1s ;
+  -ms-animation-duration: 3s, 1s ;
+  -o-animation-duration: 3s, 1s ;
+  animation-duration: 3s, 1s ;
+  -webkit-animation-timing-function: linear , linear;
+  -moz-animation-timing-function: linear , linear;
+  -ms-animation-timing-function: linear , linear;
+  -o-animation-timing-function: linear , linear;
+  animation-timing-function: linear , linear;
+  -webkit-animation-iteration-count: infinite, 1;
+  -moz-animation-iteration-count: infinite, 1;
+  -ms-animation-iteration-count: infinite, 1;
+  -o-animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
 .record:after {
   position: absolute;

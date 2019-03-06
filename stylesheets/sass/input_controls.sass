@@ -10,14 +10,16 @@
           display: block
           visibility: visible
 
-      #min_music
-        .volume_high_icon 
-          display: none
-          visibility: hidden
+      #wrap_min
 
-        .volume_off_icon
-          display: block
-          visibility: visible
+        #min_music
+          .volume_high_icon 
+            display: none
+            visibility: hidden
+
+          .volume_off_icon
+            display: block
+            visibility: visible
 
 
 #play_button  
@@ -27,11 +29,16 @@
         label     
           div[play_triangle=""]
             +paused(30px)
+      #wrap_min
 
-      #min_music
-        label     
-          div[play_triangle=""]
-            +paused(20px)
+        #min_music
+          label     
+            div[play_triangle=""]
+              +paused(15px)
+
+        #record
+          @extend %show_record
+
 
 #music_box
   visibility: hidden
