@@ -12,21 +12,22 @@ $bar_height: 10px
   
 
 
-  > div 
+  > .rectangle 
     position: relative
     display: inline-block
     background: #03A9F4
     height: $bar_height
     width: 10px
     margin: 0px 2px
-    will-change: transform
+    will-change: transform    
     +animation_property(transform-origin,"50% 100%")
     +animation_property(animation,"load 5s ease-in-out infinite")
 
 
   @for $i from 1 through 11
-    .rectangle-#{$i}      
+    .rectangle.rectangle-#{$i}      
       +animation_property(animation-delay,"#{$i - 1 }00ms")
+      +animation_property(animation-play-state,"paused")
 
 
       
