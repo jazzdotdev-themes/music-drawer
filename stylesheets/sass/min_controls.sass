@@ -1,15 +1,27 @@
 $primary_color: #F8FAFC
 
-.music_min_bar  
-  .control_btn_list
-    border: 1px solid #5ac4c9
+=vertical_bar
+  content: ""
+  position: absolute
+  border: 1px solid $primary_color
+  height: 10px
+  width: 0px
 
-    // background-color: #434431
+
+.music_min_bar
+
+  .control_btn_list
+
     border-radius: .5rem
     margin: 0px 5px
     position: relative
+
+    display: flex
+    justify-content: center
+    align-items: center
+
     width: 30px
-    height: 30px
+    height: 20px
 
     &:hover 
       background-color: $primary_color
@@ -24,38 +36,20 @@ $primary_color: #F8FAFC
 
     
     
-    .next__button
-      position: absolute
-      left: 4px
-      top: 6px
-
-      @extend %bar_button
-      // margin-right: 30px
-      +triangle(15px,"right",$primary_color)
+    .next__button    
+      position: relative
+      +triangle(10px,"right",$primary_color)
       
       &::after
+        +vertical_bar
+        right: -1px
+        top: -5px      
 
-        content: ""
-        position: absolute
-        right: -6px
-        top: -10px      
-        border: 2px solid $primary_color
-        height: 20px
-        width: 0px
-
-    .previous__button
-      position: absolute
-      top: 6px
-      left: 10px
-      @extend %bar_button
-      // margin-left: 30px
-      +triangle(15px,"left",$primary_color)
+    .previous__button      
+      position: relative
+      +triangle(10px,"left",$primary_color)
 
       &::after
-        content: ""
-        position: absolute
-        left: -6px
-        top: -10px      
-        border: 2px solid $primary_color
-        height: 20px
-        width: 0px
+        +vertical_bar
+        left: -1px
+        top: -5px      

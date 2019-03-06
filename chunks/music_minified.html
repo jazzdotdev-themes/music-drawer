@@ -4,12 +4,20 @@
       
     </div>
   </label>
+
+  <button control_btn_list reset_styles="true" onclick="nextVideo()">
+    <div next_song>
+
+    </div>
+  </button>
+  
   <!-- play button -->
   <label play__container for="play_button" onclick="playPause()">
     <div play__button id="play" play_triangle="">
 
     </div>
   </label>
+
   <button control_btn_list reset_styles="true" onclick="previousVideo()">
     <div previous_song>
 
@@ -17,11 +25,7 @@
 
   </button>
 
-  <button control_btn_list reset_styles="true" onclick="nextVideo()">
-    <div next_song>
-
-    </div>
-  </button>
+  
 
   <label volume_icon for="mute_button" onclick="muteVideo()">
     <i volume_high_icon id="high_vol"></i>
@@ -32,8 +36,12 @@
 
 
   <div volume_container>
-    <input volume_slider type="range" min="0" max="100" value="100" id="min_volume_slider">
+    <input volume_slider orient="vertical" type="range" min="0" max="100" value="100" id="min_volume_slider">
 
   </div>
+
+  
+</div>
+<div record>
 
 </div>

@@ -1,0 +1,85 @@
+=min_thumb
+  width: 4px
+  height: 20px
+  border-radius: .5rem
+  background: #F8FAFC
+  cursor: pointer
+
+$primary_color: #F8FAFC
+
+.music_min_bar
+
+  %icon_v
+    display: flex
+    justify-content: center
+    
+    border-radius: .5rem
+
+  .volume_icon
+    cursor: pointer
+    //Icon of volume
+    height: auto
+    width: 30px
+    margin: auto
+    position: relative
+    display: flex
+    justify-content: center
+    border-radius: .5rem
+    color: $primary_color
+    font-size: 20px
+
+
+    &:hover
+      background-color: $primary_color
+      color: #22292F
+
+    .volume_high_icon
+
+      @extend %icon_v
+      display: block
+
+    .volume_off_icon
+      @extend %icon_v
+      display: none
+
+  .volume_container
+    // Volume in Minified view
+    height: 55px
+    width: 30px
+    margin: auto
+    border-radius: .5rem
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: transparent
+
+    &:hover
+      background-color: #EFF8FF
+      .volume_slider
+        background: #22292F
+        &::-webkit-slider-thumb 
+          background: #22292F
+        &::-moz-range-thumb
+          background: #22292F
+
+    .volume_slider     
+      //vertical slider 
+      transform: rotate(-90deg)
+
+      -webkit-appearance: none //webkit     
+           
+      background: #EFF8FF
+      border-radius: 0.5rem
+      width: 50px
+      height: 5px
+
+      outline: none
+      cursor: pointer
+      
+      &::-webkit-slider-thumb 
+        +min_thumb
+        -webkit-appearance: none
+        appearance: none
+
+      &::-moz-range-thumb
+        +min_thumb

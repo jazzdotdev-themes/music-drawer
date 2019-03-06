@@ -1,8 +1,18 @@
+@import 'bar_wave'
+@import 'play_button'
+@import 'input_controls'
+@import 'music_box_controls'
+@import 'generic'
+@import 'volume'
+
 $first_border: 5px
 $second_border: 10px
 
 $box_width: 350px
 $box_height: 370px
+
+$gradient_color1: #2a6669
+$gradient_color2: #0d1013
 
 .dark_container
   width: 100%
@@ -23,11 +33,14 @@ $box_height: 370px
   margin: 10px
   border-radius: 0.6rem
   background-color: #0d1013
+  background-image: linear-gradient(135deg, $gradient_color1, $gradient_color2)
+
+
   border-width: 6px
   border-style: solid
   border-color: #5ac4c9
   padding: 10px 
-  
+  z-index: 20
   position: fixed
   
   bottom: calc(50vh - ( #{$box_height} / 2 ) )

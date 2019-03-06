@@ -1,4 +1,14 @@
+@import 'min_play'
+@import 'min_controls'
+@import 'min_show_btn'
+@import 'min_volume'
+
+
+
 $primary_color: #F8FAFC
+
+$gradient_color1: #2a6669
+$gradient_color2: #0d1013
 
 =min_thumb
   width: 5px
@@ -10,74 +20,22 @@ $primary_color: #F8FAFC
 
 .music_min_bar
 
-  width: 100px
-  height: 150px
-  background-color: #0d1013
+  width: 50px
+  height: auto
+  background-color: #0d1013  
+  background-image: linear-gradient(135deg, $gradient_color1, $gradient_color2)
   position: fixed
-  display: flex
-  flex-wrap: wrap
-  align-items: top
-  justify-content: space-between
+
   padding: 5px
   z-index: 40
   top: 35px
-  right: 0px
-  border-radius: 0.5rem
+  right: 5px
   box-shadow: 0px 0px 4px 1px #000
   opacity: .6
   
   &:hover
     opacity: 1
 
-  .volume_icon
-    border: 1px solid #5ac4c9
-    border-radius: .5rem
-    color: $primary_color
-    font-size: 20px
-    height: 25px
-    &:hover
-      background-color: $primary_color
-      color: #22292F
-    .volume_high_icon
-      display: block
 
-    .volume_off_icon
-      display: none
-
-
-  .volume_container
-    border: 1px solid #5ac4c9
-    height: 25px
-    border-radius: .5rem
-
-    width: 70%
-    // margin: 0px 5px
-    background-color: transparent
-    &:hover
-      background-color: #EFF8FF
-      .volume_slider
-        background: #22292F
-        &::-webkit-slider-thumb 
-          background: #000
-        &::-moz-range-thumb
-          background: #000
-
-    .volume_slider
-      border: 1px solid #5ac4c9
-
-      -webkit-appearance: none
-      background: #B8C2CC
-      width: 100%
-      border-radius: 0.5rem
-      outline: none
-      height: 5px
-      cursor: pointer
-      
-      &::-webkit-slider-thumb 
-        +min_thumb
-        -webkit-appearance: none
-        appearance: none
-
-      &::-moz-range-thumb
-        +min_thumb
+  
 
