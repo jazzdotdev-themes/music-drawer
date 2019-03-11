@@ -27,7 +27,9 @@ in the following format
 ```  
 The template will only display the first media to be found in this
 order youtube , video  or audio
-in order to not add a media just removed the tag from the sended information,
+also if a configuration is found for any of this media the template
+will asume it has all the necessary data for it.
+
 Example: if the audio tag is the only one send , template will use that media configuration.
 ```
   audio = {
