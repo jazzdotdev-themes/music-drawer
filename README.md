@@ -21,7 +21,6 @@ in the following format
   }
   audio = {
     mp3_src = "",
-    mpeg_src = "",
     ogg_src = "",
   }
 ```  
@@ -34,7 +33,6 @@ Example: if the audio tag is the only one send , template will use that media co
 ```
   audio = {
     mp3_src = "",
-    mpeg_src = "",
     ogg_src = "",
   }
 ```

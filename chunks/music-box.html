@@ -43,20 +43,23 @@
 
     {% elif music_box.video %}
       <video music_video controls>
-        <source src="" type="video/mp4">
-        <source src="" type="video/ogg">
+        
+        <source src="{% if music_box.video.mp4_src %}{{music_box.video.mp4_src}}{%endif%}" type="video/mp4">
+        
+        <source src="{% if music_box.video.ogg_src %}{{music_box.video.ogg_src}}{%endif%}" type="video/ogg">
+      
+        <source src="{% if music_box.video.webm_src %}{{music_box.video.webm_src}}{%endif%}" type="video/webm">
+      
+        <source src="{% if music_box.video.3gp_src %}{{music_box.video.3gp_src}}{%endif%}" type="video/3gp">
+
         Your browser does not support the video tag.
       </video>
 
     {% elif music_box.audio %}
       <audio controls>
-        <source src="song.ogg" type="audio/ogg">
-        <source src="https://coa.eaoe.cc/1d4f4fc948e23860bae15ad07c1ef5c1/AMTAQ-AJS4Y" type="audio/mpeg">
-          <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">            
-        <!-- /home/luis/Downloads/jorge-celedon-que-bonita-es-esta-vida.mp3 -->
-        <!-- /home/luis/Downloads/natalia-jimenez-creo-en-mi-.mp3 -->
-        Your browser does not support the audio element.
-        
+        <source src="{% if music_box.audio.mp3_src %}{{music_box.audio.mp3_src}}{%endif%}" type="audio/mpeg">
+        <source src="{% if music_box.audio.ogg_src %}{{music_box.audio.ogg_src}}{%endif%}" type="audio/ogg">
+        Your browser does not support the audio element.        
       </audio>
 
     {% endif %}
