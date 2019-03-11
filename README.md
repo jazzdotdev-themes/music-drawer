@@ -37,3 +37,4 @@ Example: if the audio tag is the only one send , template will use that media co
   }
 ```
 
+Example of html implementation in ```layouts/base_example.html```
