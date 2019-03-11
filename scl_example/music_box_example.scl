@@ -4,10 +4,10 @@ youtube = {
 }
 
 video = {
-  mp4_src = "",
+  mp4_src = "http://techslides.com/demos/sample-videos/small.mp4",
   ogg_src = "",
   webm_src = "",
-  3gp_src = "",
+  gp3_src = "", #for 3gp becuase parameters can't start with a number
 }
 
 audio = {

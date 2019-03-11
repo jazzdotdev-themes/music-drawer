@@ -35,14 +35,14 @@
     <div video_feed>
     
     {% if music_box.youtube %}
-      <!-- make sure link has embed  tag-->
+      <!-- make sure link has /embed/  tag-->
       <!--for no controls &controls=0 -->
       <iframe music_video src="https://www.youtube.com/embed/{{ music_box.youtube.video_id }}{% if music_box.youtube.list_id %}&list={{ music_box.youtube.list_id }}{% endif %}&enablejsapi=1"
       frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
       </iframe>     
 
     {% elif music_box.video %}
-      <video music_video controls>
+      <video music_video id="music_video" controls >
         
         <source src="{% if music_box.video.mp4_src %}{{music_box.video.mp4_src}}{%endif%}" type="video/mp4">
         
@@ -50,13 +50,13 @@
       
         <source src="{% if music_box.video.webm_src %}{{music_box.video.webm_src}}{%endif%}" type="video/webm">
       
-        <source src="{% if music_box.video.3gp_src %}{{music_box.video.3gp_src}}{%endif%}" type="video/3gp">
+        <source src="{% if music_box.video.gp3_src %}{{music_box.video.gp3_src}}{%endif%}" type="video/3gp">
 
         Your browser does not support the video tag.
       </video>
 
     {% elif music_box.audio %}
-      <audio controls>
+      <audio music_audio id="music_audio" controls >
         <source src="{% if music_box.audio.mp3_src %}{{music_box.audio.mp3_src}}{%endif%}" type="audio/mpeg">
         <source src="{% if music_box.audio.ogg_src %}{{music_box.audio.ogg_src}}{%endif%}" type="audio/ogg">
         Your browser does not support the audio element.        

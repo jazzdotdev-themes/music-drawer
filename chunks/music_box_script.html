@@ -70,7 +70,48 @@
 </script>
 
 {% elif music_box.video %}
+<script>
+  let isPlaying = false;
+  let isMuted = false;
+  let volumeSld = document.getElementById('volume_slider');
+  let minVolumeSld = document.getElementById('min_volume_slider');
+  let player = document.getElementById('music_video');
+  let lastVolume = player.volume;
 
+
+  function playPause() {
+    if (isPlaying) {
+      player.pause();
+    } else {
+      player.play();
+    }
+    isPlaying = !isPlaying;
+  }
+
+  volumeSld.oninput = function () {
+    player.volume = this.value/100;
+    
+    minVolumeSld.value = this.value;
+  }
+  minVolumeSld.oninput = function () {
+    player.volume = this.value/100;
+
+    volumeSld.value = this.value;
+  }
+
+  function muteVideo() {
+    if (isMuted) {
+      player.volume = lastVolume;      
+      lastVolume = player.volume;
+    }else{
+      player.volume = 0;
+    }
+    isMuted = !isMuted;
+  }
+
+
+
+</script>
 
 {% elif music_box.audio %}
 
