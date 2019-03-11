@@ -1,0 +1,15 @@
+youtube = {
+  video_id = "UbQgXeY_zi4?",
+  list_id = "PL7odT97B5pLa-D40qMJNaLP4jvZ-HeDLO",
+}
+
+video = {
+  mp4_src = "",
+  ogg_src = "",
+}
+
+audio = {
+  mp3_src = "",
+  mpeg_src = "",
+  ogg_src = "",
+}

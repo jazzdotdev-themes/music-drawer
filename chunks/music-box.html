@@ -37,8 +37,8 @@
     {% if music_box.youtube %}
       <!-- make sure link has embed  tag-->
       <!--for no controls &controls=0 -->
-<iframe music_video src="https://www.youtube.com/embed/{{ music_box.youtube.video_id }}{% if music_box.youtube.list_id %}&list={{ music_box.youtube.list_id }}{% endif %}&enablejsapi=1"
-  frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
+      <iframe music_video src="https://www.youtube.com/embed/{{ music_box.youtube.video_id }}{% if music_box.youtube.list_id %}&list={{ music_box.youtube.list_id }}{% endif %}&enablejsapi=1"
+      frameborder="0" allow="accelerometer; encrypted-media; gyroscope; autoplay; picture-in-picture" id="youtube_video">
       </iframe>     
 
     {% elif music_box.video %}
@@ -52,8 +52,9 @@
       <audio controls>
         <source src="song.ogg" type="audio/ogg">
         <source src="https://coa.eaoe.cc/1d4f4fc948e23860bae15ad07c1ef5c1/AMTAQ-AJS4Y" type="audio/mpeg">
-        <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">
-        
+          <source src="https://sample-videos.com/audio/mp3/crowd-cheering.mp3" type="audio/mpeg">            
+        <!-- /home/luis/Downloads/jorge-celedon-que-bonita-es-esta-vida.mp3 -->
+        <!-- /home/luis/Downloads/natalia-jimenez-creo-en-mi-.mp3 -->
         Your browser does not support the audio element.
         
       </audio>
